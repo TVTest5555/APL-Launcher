@@ -96,6 +96,7 @@
         body.classList.remove("telly-spacing-tight", "telly-spacing-balanced", "telly-spacing-relaxed");
         body.classList.add("telly-spacing-" + (sys.pref("tellySpacing") || "balanced"));
         body.classList.toggle("telly-labels-on", sys.pref("tellyLabels") !== "off");
+        body.classList.toggle("telly-labels-off", sys.pref("tellyLabels") === "off");
     }
 
     function build() {\n        applyTellyLayout();
