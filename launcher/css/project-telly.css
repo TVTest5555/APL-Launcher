@@ -252,3 +252,13 @@ body.telly-labels-off .tile__label { opacity: 0 !important; }
 body.telly-spacing-tight { --telly-row-gap: 70px; }
 body.telly-spacing-balanced { --telly-row-gap: 90px; }
 body.telly-spacing-relaxed { --telly-row-gap: 110px; }
+
+body.telly-motion-slow #tellyAmbient { animation-duration: 72s; }
+body.telly-motion-slow #tellyAmbient::before { animation-duration: 56s; }
+body.telly-motion-fast #tellyAmbient { animation-duration: 22s; }
+body.telly-motion-fast #tellyAmbient::before { animation-duration: 16s; }
+body.telly-intensity-subtle #tellyAmbient { opacity: .38; }
+body.telly-intensity-subtle #tellyAmbient::before { opacity: .48; }
+body.telly-intensity-balanced #tellyAmbient { opacity: .72; }
+body.telly-intensity-vivid #tellyAmbient { opacity: 1; }
+body.telly-intensity-vivid #tellyAmbient::before { opacity: 1; }
