@@ -325,3 +325,123 @@ body.telly-preset-sakura .tile__card::before {
 body.telly-preset-sakura .tile.is-focused .tile__card {
   box-shadow: 0 0 34px rgba(218,139,194,.30), 0 25px 46px rgba(0,0,0,.48), inset 0 0 24px rgba(255,216,235,.12);
 }
+
+
+/* Project Telly visual pass 2: give each preset a recognisable animated scene.
+   These are locally generated CSS layers, not blurred colour blobs or remote assets. */
+#tellyAmbient { opacity: .94; }
+#tellyAmbient::before, #tellyAmbient::after {
+  content:""; position:absolute; inset:-8%; pointer-events:none;
+}
+#tellyAmbient::before { filter:none; }
+#tellyAmbient::after { mix-blend-mode:screen; }
+
+/* Frost: drifting ice crystals, fine frozen striations and a moving glacial light. */
+body.telly-preset-frost #tellyAmbient {
+  background:
+    linear-gradient(118deg, transparent 0 34%, rgba(150,220,255,.12) 35%, transparent 36% 62%, rgba(205,242,255,.10) 63%, transparent 64%),
+    repeating-linear-gradient(112deg, transparent 0 76px, rgba(190,235,255,.10) 77px, transparent 79px 154px),
+    linear-gradient(145deg,#061321 0%,#12344c 42%,#071a2a 72%,#030b16 100%);
+}
+body.telly-preset-frost #tellyAmbient::before {
+  background:
+    radial-gradient(circle at 12% 24%,rgba(220,248,255,.95) 0 1px,transparent 3px),
+    radial-gradient(circle at 32% 76%,rgba(174,231,255,.8) 0 2px,transparent 4px),
+    radial-gradient(circle at 68% 18%,rgba(220,248,255,.9) 0 1px,transparent 3px),
+    radial-gradient(circle at 82% 64%,rgba(174,231,255,.8) 0 2px,transparent 4px),
+    radial-gradient(ellipse at 50% 50%,rgba(90,190,235,.18),transparent 58%);
+  background-size:180px 180px,240px 240px,210px 210px,260px 260px,100% 100%;
+  animation:tellySnowDrift 24s linear infinite;
+}
+body.telly-preset-frost #tellyAmbient::after {
+  background:linear-gradient(112deg,transparent 25%,rgba(202,241,255,.02) 39%,rgba(214,247,255,.22) 50%,rgba(202,241,255,.02) 61%,transparent 75%);
+  transform:translateX(-70%);
+  animation:tellyGlacierSweep 12s ease-in-out infinite;
+}
+@keyframes tellySnowDrift { from{background-position:0 0,0 0,0 0,0 0,0 0} to{background-position:0 420px,0 620px,0 500px,0 700px,0 0} }
+@keyframes tellyGlacierSweep { 0%,18%{transform:translateX(-75%)} 78%,100%{transform:translateX(75%)} }
+
+/* Aurora: broad, visible ribbons that travel across the screen. */
+body.telly-preset-aurora #tellyAmbient {
+ background:linear-gradient(180deg,#030b16 0%,#071b28 58%,#050b16 100%);
+}
+body.telly-preset-aurora #tellyAmbient::before {
+ background:
+  linear-gradient(165deg,transparent 22%,rgba(37,225,170,.02) 30%,rgba(50,236,185,.42) 39%,rgba(107,255,216,.12) 45%,transparent 55%),
+  linear-gradient(195deg,transparent 28%,rgba(101,90,238,.02) 38%,rgba(105,112,255,.40) 47%,rgba(105,190,255,.12) 53%,transparent 64%),
+  linear-gradient(155deg,transparent 42%,rgba(71,207,198,.02) 48%,rgba(71,207,198,.30) 56%,transparent 68%);
+ background-size:150% 150%;
+ filter:blur(3px);
+ animation:tellyAuroraWave 18s ease-in-out infinite alternate;
+}
+body.telly-preset-aurora #tellyAmbient::after {
+ background:repeating-linear-gradient(90deg,transparent 0 95px,rgba(156,255,224,.07) 96px,transparent 98px 190px);
+ mask-image:linear-gradient(180deg,transparent,#000 25%,#000 78%,transparent);
+ animation:tellyAuroraLines 32s linear infinite;
+}
+@keyframes tellyAuroraWave { 0%{transform:translate(-8%,4%) skewY(-7deg) scale(1.08)} 50%{transform:translate(3%,-3%) skewY(4deg) scale(1.18)} 100%{transform:translate(9%,2%) skewY(-4deg) scale(1.1)} }
+@keyframes tellyAuroraLines { from{transform:translateX(-5%)} to{transform:translateX(5%)} }
+
+/* Retro Wave: animated perspective grid and a luminous horizon. */
+body.telly-preset-retro #tellyAmbient { background:linear-gradient(180deg,#080d20 0%,#21133a 58%,#10091f 100%); }
+body.telly-preset-retro #tellyAmbient::before {
+ background:radial-gradient(ellipse 52% 25% at 50% 61%,rgba(255,76,198,.34),transparent 72%),linear-gradient(180deg,transparent 58%,rgba(255,80,205,.16) 59%,transparent 61%);
+}
+body.telly-preset-retro #tellyAmbient::after {
+ inset:48% -10% -20%;
+ background:
+  repeating-linear-gradient(90deg,rgba(72,190,255,.0) 0 68px,rgba(72,190,255,.32) 69px 71px,transparent 72px 138px),
+  repeating-linear-gradient(0deg,rgba(72,190,255,0) 0 24px,rgba(72,190,255,.30) 25px 27px,transparent 28px 54px);
+ transform:perspective(300px) rotateX(58deg) scale(1.8);
+ transform-origin:top center;
+ mask-image:linear-gradient(180deg,#000,transparent 90%);
+ animation:tellyRetroGrid 3s linear infinite;
+}
+@keyframes tellyRetroGrid { from{background-position:0 0,0 0} to{background-position:0 0,0 54px} }
+
+/* Sakura: slow falling petals against a plum night sky. */
+body.telly-preset-sakura #tellyAmbient::before {
+ background:
+  radial-gradient(ellipse 9px 5px at 12% 18%,rgba(255,191,220,.75),transparent 75%),
+  radial-gradient(ellipse 8px 5px at 38% 64%,rgba(246,166,207,.68),transparent 75%),
+  radial-gradient(ellipse 10px 6px at 72% 30%,rgba(255,208,230,.72),transparent 75%),
+  radial-gradient(ellipse 8px 5px at 88% 76%,rgba(216,171,242,.65),transparent 75%);
+ background-size:190px 230px,240px 280px,220px 260px,260px 300px;
+ animation:tellyPetalFall 20s linear infinite;
+}
+@keyframes tellyPetalFall { from{background-position:0 -250px,0 -310px,0 -180px,0 -400px} to{background-position:80px 950px,-90px 1050px,110px 900px,-70px 1100px} }
+
+/* Obsidian: slow molten seams moving beneath smoked black glass. */
+body.telly-preset-obsidian #tellyAmbient::before {
+ background:
+  linear-gradient(125deg,transparent 0 38%,rgba(255,126,37,.02) 40%,rgba(255,145,54,.32) 41%,rgba(255,190,105,.08) 42%,transparent 45%),
+  linear-gradient(35deg,transparent 0 58%,rgba(255,112,31,.02) 60%,rgba(255,154,69,.24) 61%,transparent 64%),
+  radial-gradient(ellipse at 50% 80%,rgba(220,80,20,.22),transparent 55%);
+ background-size:140% 140%;
+ animation:tellyMoltenFlow 22s ease-in-out infinite alternate;
+}
+@keyframes tellyMoltenFlow { from{transform:translate(-3%,2%) scale(1)} to{transform:translate(3%,-2%) scale(1.12)} }
+
+/* Make the remaining presets atmospheric rather than flat gradients. */
+body.telly-preset-family #tellyAmbient::before,
+body.telly-preset-cinema #tellyAmbient::before,
+body.telly-preset-champagne #tellyAmbient::before,
+body.telly-preset-gamer #tellyAmbient::before {
+ background:
+  radial-gradient(ellipse at 18% 30%,rgba(255,220,172,.12),transparent 32%),
+  radial-gradient(ellipse at 78% 72%,rgba(100,165,220,.12),transparent 36%),
+  repeating-linear-gradient(125deg,transparent 0 140px,rgba(255,255,255,.035) 141px,transparent 143px 280px);
+ animation:tellyAtmosphere 28s ease-in-out infinite alternate;
+}
+@keyframes tellyAtmosphere { from{transform:translate(-2%,1%) scale(1)} to{transform:translate(2%,-1%) scale(1.08)} }
+
+/* Static/performance preferences are respected by every scene. */
+body.telly-bg-still #tellyAmbient,
+body.telly-bg-still #tellyAmbient::before,
+body.telly-bg-still #tellyAmbient::after,
+body.reduce-motion #tellyAmbient,
+body.reduce-motion #tellyAmbient::before,
+body.reduce-motion #tellyAmbient::after,
+body.perf #tellyAmbient,
+body.perf #tellyAmbient::before,
+body.perf #tellyAmbient::after { animation:none !important; }
