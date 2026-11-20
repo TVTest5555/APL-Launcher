@@ -2322,6 +2322,17 @@
         return true;
     };
     APL.isAppVisible = function (id) { return APL.sys.pref("hiddenApps").indexOf(id) === -1; };
+    APL.moveApp = function (id, direction) {
+        var from = -1;
+        for (var i = 0; i < allApps.length; i++) if (allApps[i].id === id) { from = i; break; }
+        var to = from + (direction < 0 ? -1 : 1);
+        if (from < 0 || to < 0 || to >= allApps.length) return false;
+        var item = allApps.splice(from, 1)[0];
+        allApps.splice(to, 0, item);
+        saveOrder();
+        render();
+        return true;
+    };
     APL.reloadApps = function () { render(); };
     APL.openSources = function () {
         if (APL.ccOverlay && APL.platform.toLauncher) { APL.platform.toLauncher("sources"); return; }    // over the apps (webos.js)
