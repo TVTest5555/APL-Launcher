@@ -50,8 +50,11 @@
         var strip = el("div", "telly-studio__preview-tiles");
         visibleApps().slice(0, 6).forEach(function (app) {
             var tile = el("div", "telly-studio__mock-tile");
-            var name = el("span", "", app.name);
-            tile.appendChild(name);
+            if (APL.makeTile) {
+                var artwork = APL.makeTile(app, 0);
+                artwork.classList.add("telly-studio__real-tile");
+                tile.appendChild(artwork);
+            } else { tile.textContent = app.name; }
             strip.appendChild(tile);
         });
         if (!strip.children.length) strip.appendChild(el("div", "telly-studio__empty", "Choose apps to build your home screen"));
@@ -179,7 +182,6 @@
         page = "themes";
         render();
         // Header close is an actual remote target, not a decorative control.
-        close.addEventListener("click", closeStudio);
     }
     function closeStudio() {
         if (!root) return;
