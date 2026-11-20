@@ -1,3 +1,5 @@
+> **Project Telly Android fork:** this repository is being adapted for an ad-free, customisable Android TV / Google TV home screen. See [PROJECT-TELLY.md](PROJECT-TELLY.md) for the fork status, build instructions and test APK workflow. The original APL Launcher attribution and licence are retained below.
+
 <div align="center">
 
 # APL Launcher
