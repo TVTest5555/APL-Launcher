@@ -1,21 +1,28 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
 <defs>
- <linearGradient id="ice" x2="1" y2="1"><stop stop-color="#071522"/><stop offset=".42" stop-color="#12334b"/><stop offset=".72" stop-color="#0a2235"/><stop offset="1" stop-color="#030b16"/></linearGradient>
- <radialGradient id="glow"><stop stop-color="#9ee8ff" stop-opacity=".42"/><stop offset="1" stop-color="#3c9dc7" stop-opacity="0"/></radialGradient>
- <linearGradient id="sheet" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e4faff" stop-opacity=".0"/><stop offset=".48" stop-color="#b8edff" stop-opacity=".25"/><stop offset=".53" stop-color="#f5fdff" stop-opacity=".06"/><stop offset="1" stop-color="#7edaff" stop-opacity="0"/></linearGradient>
- <filter id="blur"><feGaussianBlur stdDeviation="34"/></filter>
- <pattern id="crystals" width="240" height="210" patternUnits="userSpaceOnUse">
-  <path d="M24 18 L43 54 24 90 5 54Z M24 18V90 M5 54H43 M170 112l14 25-14 25-14-25Z M170 112v50 M156 137h28" fill="none" stroke="#bceeff" stroke-opacity=".14" stroke-width="1.3"/>
-  <path d="M90 0l-7 20 7 20 7-20Z M90 0v40 M83 20h14" fill="none" stroke="#e8fbff" stroke-opacity=".11"/>
- </pattern>
+ <linearGradient id="ice" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#061321"/><stop offset=".35" stop-color="#16415a"/><stop offset=".68" stop-color="#0a263b"/><stop offset="1" stop-color="#030b15"/></linearGradient>
+ <linearGradient id="glacier" x1="0" y1="0" x2=".9" y2="1"><stop stop-color="#f0fcff" stop-opacity=".76"/><stop offset=".24" stop-color="#a9e4f8" stop-opacity=".42"/><stop offset=".55" stop-color="#397f9e" stop-opacity=".12"/><stop offset="1" stop-color="#061827" stop-opacity="0"/></linearGradient>
+ <linearGradient id="iceface" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#dff8ff" stop-opacity=".55"/><stop offset=".5" stop-color="#75b9d4" stop-opacity=".18"/><stop offset="1" stop-color="#071827" stop-opacity=".05"/></linearGradient>
+ <radialGradient id="light"><stop stop-color="#d8f6ff" stop-opacity=".5"/><stop offset="1" stop-color="#8edcff" stop-opacity="0"/></radialGradient>
+ <filter id="soft"><feGaussianBlur stdDeviation="48"/></filter>
+ <filter id="fine"><feGaussianBlur stdDeviation="8"/></filter>
 </defs>
 <rect width="1920" height="1080" fill="url(#ice)"/>
-<ellipse cx="420" cy="260" rx="650" ry="380" fill="url(#glow)" filter="url(#blur)"/>
-<ellipse cx="1570" cy="850" rx="650" ry="420" fill="url(#glow)" opacity=".7" filter="url(#blur)"/>
-<path d="M-80 830 Q360 520 730 720 T1450 620 T2040 460" fill="none" stroke="#a9eaff" stroke-opacity=".12" stroke-width="110" filter="url(#blur)"/>
-<path d="M-80 830 Q360 520 730 720 T1450 620 T2040 460" fill="none" stroke="#d9f8ff" stroke-opacity=".15" stroke-width="2"/>
-<path d="M-100 160 L600 0 900 0 160 430Z M1300 1080L1920 550V780L1600 1080Z" fill="url(#sheet)"/>
-<rect width="1920" height="1080" fill="url(#crystals)"/>
-<g fill="#e9fbff"><circle cx="230" cy="180" r="2" opacity=".8"/><circle cx="560" cy="870" r="3" opacity=".55"/><circle cx="1190" cy="230" r="2" opacity=".65"/><circle cx="1690" cy="720" r="3" opacity=".6"/><circle cx="1450" cy="400" r="1.8" opacity=".7"/></g>
-<rect width="1920" height="1080" fill="#06111d" opacity=".12"/>
+<ellipse cx="420" cy="300" rx="680" ry="420" fill="url(#light)" filter="url(#soft)"/>
+<ellipse cx="1480" cy="820" rx="620" ry="360" fill="url(#light)" opacity=".55" filter="url(#soft)"/>
+<!-- Broad sculpted glacier wall: irregular ice shelves, not geometric crystal symbols. -->
+<path d="M-100 740 C120 650 190 490 360 450 C500 420 570 510 700 450 C850 380 900 220 1080 250 C1240 270 1300 390 1440 330 C1600 260 1720 350 2020 170 L2020 1080H-100Z" fill="url(#glacier)" opacity=".72"/>
+<path d="M-80 760 C160 690 220 560 390 520 C530 485 590 580 720 520 C880 445 930 300 1080 320 C1240 345 1300 455 1450 390 C1630 315 1770 410 2010 245" fill="none" stroke="#d9f7ff" stroke-opacity=".32" stroke-width="5"/>
+<path d="M-40 860 L260 610 420 660 610 470 760 560 940 350 1100 420 1280 250 1450 360 1650 190 1960 300" fill="none" stroke="#b7eaff" stroke-opacity=".16" stroke-width="28" filter="url(#fine)"/>
+<path d="M80 1080 L360 720 520 760 700 560 840 650 1030 430 1180 500 1360 340 1510 430 1740 260 1920 340V1080Z" fill="url(#iceface)" opacity=".36"/>
+<path d="M-60 920 Q260 770 470 830 T900 730 T1350 700 T1990 540" fill="none" stroke="#bceeff" stroke-opacity=".14" stroke-width="3"/>
+<!-- Fine frozen striations and scattered ice dust, no repeating diamond pattern. -->
+<g fill="none" stroke="#d9f6ff" stroke-opacity=".12" stroke-width="2">
+ <path d="M90 160L360 360 M180 80L500 330 M1160 90L1420 290 M1320 40L1600 250 M760 820L990 980"/>
+ <path d="M260 1080L520 790 M520 1080L730 820 M1510 1080L1700 820 M1660 1080L1850 850"/>
+</g>
+<g fill="#e9fbff">
+ <circle cx="230" cy="180" r="2" opacity=".75"/><circle cx="560" cy="870" r="2.5" opacity=".5"/><circle cx="1190" cy="230" r="2" opacity=".65"/><circle cx="1690" cy="720" r="2.5" opacity=".55"/><circle cx="1450" cy="400" r="1.7" opacity=".7"/><circle cx="850" cy="180" r="1.5" opacity=".55"/>
+</g>
+<rect width="1920" height="1080" fill="#03101b" opacity=".12"/>
 </svg>
