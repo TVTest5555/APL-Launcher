@@ -80,7 +80,7 @@
         var body = global.document && global.document.body;
         if (!body) return;
         var preset = sys.pref("tellyPreset") || "cinema";
-        ["family", "cinema", "minimal", "gamer", "champagne", "frost", "aurora", "retro"].forEach(function (name) {
+        ["family", "cinema", "minimal", "gamer", "champagne", "frost", "aurora", "retro", "obsidian", "sakura"].forEach(function (name) {
             body.classList.remove("telly-preset-" + name);
         });
         body.classList.add("telly-preset-" + preset);
@@ -122,7 +122,9 @@
                         ["champagne", "Champagne Signature"],
                         ["frost", "Frost"],
                         ["aurora", "Aurora"],
-                        ["retro", "Retro Wave"]
+                        ["retro", "Retro Wave"],
+                        ["obsidian", "Obsidian"],
+                        ["sakura", "Sakura"]
                     ], "Eight complete looks designed for different viewing preferences. You can still adjust the glass and background separately.", applyTellyPreset)
                 ], "Start with a complete look, then personalise it."),
                 menu("Project Telly Studio", "sparkle", [
