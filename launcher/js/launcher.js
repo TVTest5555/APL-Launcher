@@ -2117,6 +2117,7 @@
         if (APL.search && APL.search.isOpen()) { APL.search.close(); closed = true; }
         if (APL.profilesUI && APL.profilesUI.isOpen()) { APL.profilesUI.close(); closed = true; }
         if (APL.settings && APL.settings.isOpen()) { APL.settings.close(); closed = true; }
+        if (APL.tellyStudio && APL.tellyStudio.isOpen()) { APL.tellyStudio.close(); closed = true; }
         if (APL.controlCenter && APL.controlCenter.isOpen()) { APL.controlCenter.close(); closed = true; }
         if (APL.widgets && APL.widgets.leaveCards()) closed = true;
         if (editing) { endEdit(); closed = true; }
