@@ -78,3 +78,26 @@
 @media (prefers-reduced-motion: reduce) {
   #tellyAmbient, #tellyAmbient::before { animation: none !important; }
 }
+
+/* User-selectable Project Telly finishes (stored in the launcher's own preferences). */
+body.telly-glass-ice {
+  --telly-edge: rgba(190, 224, 246, .68);
+  --telly-edge-hot: rgba(226, 246, 255, .96);
+  --telly-glow: rgba(112, 185, 226, .24);
+  --telly-glass-fill: rgba(17, 25, 34, .25);
+}
+body.telly-glass-clear {
+  --telly-edge: rgba(255,255,255,.42);
+  --telly-edge-hot: rgba(255,255,255,.92);
+  --telly-glow: rgba(210,225,255,.16);
+  --telly-glass-fill: rgba(255,255,255,.10);
+}
+body.telly-bg-aurora #tellyAmbient {
+  background:
+    radial-gradient(ellipse 42% 34% at 18% 78%, rgba(80, 190, 174, .30), transparent 72%),
+    radial-gradient(ellipse 46% 40% at 82% 22%, rgba(111, 92, 194, .32), transparent 72%),
+    radial-gradient(ellipse 42% 38% at 52% 56%, rgba(65, 132, 170, .22), transparent 72%),
+    linear-gradient(132deg, #060b13 0%, #101622 48%, #070912 100%);
+}
+body.telly-bg-still #tellyAmbient,
+body.telly-bg-still #tellyAmbient::before { animation: none; }
