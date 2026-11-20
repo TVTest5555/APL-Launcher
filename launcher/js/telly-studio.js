@@ -243,7 +243,6 @@
         if (!root) return;
         root.classList.remove("is-open");
         if (nav) APL.popNav(nav);
-        nav = null;
         if (APL.refreshHome) APL.refreshHome();
     }
     APL.tellyStudio = { open: open, close: closeStudio, isOpen: function () { return !!root && root.classList.contains("is-open"); } };
