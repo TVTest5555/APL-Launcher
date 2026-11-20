@@ -118,8 +118,11 @@
                         ["cinema", "Cinema"],
                         ["minimal", "Minimal OLED"],
                         ["gamer", "Gaming"],
-                        ["champagne", "Champagne Signature"]
-                    ], "Five complete looks designed for different viewing preferences. You can still adjust the glass and background separately.", applyTellyPreset)
+                        ["champagne", "Champagne Signature"],
+                        ["frost", "Frost"],
+                        ["aurora", "Aurora"],
+                        ["retro", "Retro Wave"]
+                    ], "Eight complete looks designed for different viewing preferences. You can still adjust the glass and background separately.", applyTellyPreset)
                 ], "Start with a complete look, then personalise it."),
                 menu("Project Telly Studio", "sparkle", [
                     choice("Glass Finish", "tellyGlassStyle",
