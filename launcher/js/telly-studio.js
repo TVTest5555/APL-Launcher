@@ -233,8 +233,9 @@
             onBack: closeStudio
         });
         root.classList.add("is-open");
-        page = "themes";
+        page = APL.sys.pref("tellySetupComplete") ? "themes" : "setup";
         render();
+        APL.pushNav(nav);
         // Header close is an actual remote target, not a decorative control.
     }
     function closeStudio() {
