@@ -65,7 +65,19 @@
         };
     }
 
+    function applyTellyVisuals() {
+        var body = global.document && global.document.body;
+        if (!body) return;
+        var glass = sys.pref("tellyGlassStyle") || "champagne";
+        var motion = sys.pref("tellyAmbientStyle") || "flow";
+        ["telly-glass-champagne","telly-glass-ice","telly-glass-clear"].forEach(function (x) { body.classList.remove(x); });
+        ["telly-bg-flow","telly-bg-aurora","telly-bg-still"].forEach(function (x) { body.classList.remove(x); });
+        body.classList.add("telly-glass-" + glass);
+        body.classList.add("telly-bg-" + motion);
+    }
+
     function build() {
+        applyTellyVisuals();
         var apps = ((APL.allApps && APL.allApps()) || []).filter(function (a) { return !a.virtual; });
         /* The language is fixed when the launcher starts (i18n.js): changing it reloads the launcher. */
         var language = sys.pref("language");
@@ -77,6 +89,16 @@
 
             /* -------- Appearance -------- */
             menu(APL.t("Appearance"), "sun", [
+                menu("Project Telly Design", "sparkle", [
+                    choice("Glass Finish", "tellyGlassStyle",
+                        [["champagne", "Champagne Edge"], ["ice", "Arctic Edge"], ["clear", "Clear Glass"]],
+                        "Choose the glass surface and illuminated edge used by app tiles.",
+                        applyTellyVisuals),
+                    choice("Animated Background", "tellyAmbientStyle",
+                        [["flow", "Ambient Flow"], ["aurora", "Aurora Glow"], ["still", "Static"]],
+                        "Choose an original, procedurally generated background. Static disables movement.",
+                        applyTellyVisuals)
+                ], "Personalise the Project Telly glass finish and ambient background."),
                 choice(APL.t("Theme"), "appearance", [["light", APL.t("Light")], ["dark", APL.t("Dark")], ["auto", APL.t("Automatic")]],
                     APL.t("Light or dark for backgrounds and menus. Automatic switches to dark at sunset and to light at sunrise.")),
                 menu(APL.t("Top Shelf"), "photo", [
