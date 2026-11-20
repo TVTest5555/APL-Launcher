@@ -38,3 +38,11 @@
 .telly-studio__mock-tile { position:relative; display:block; padding:0; overflow:hidden; min-width:0; }
 .telly-studio__real-tile { transform:scale(.34); transform-origin:top left; pointer-events:none; }
 .telly-studio__real-tile .tile__label { opacity:1; }
+
+body.telly-preset-frost .telly-studio__preview { background:radial-gradient(ellipse at 18% 22%,rgba(90,190,234,.34),transparent 52%),linear-gradient(145deg,#0b1d2d,#102f43 52%,#071321); }
+body.telly-preset-aurora .telly-studio__preview { background:radial-gradient(ellipse at 20% 70%,rgba(35,178,148,.34),transparent 55%),radial-gradient(ellipse at 82% 18%,rgba(122,90,198,.32),transparent 55%),linear-gradient(145deg,#07121c,#121d2b 55%,#080e19); }
+body.telly-preset-retro .telly-studio__preview { background:radial-gradient(ellipse at 50% 85%,rgba(198,63,165,.34),transparent 58%),linear-gradient(145deg,#0b1024,#25163a 60%,#100d22); }
+body.telly-preset-minimal .telly-studio__preview { background:#030405; }
+body.telly-preset-gamer .telly-studio__preview { background:radial-gradient(ellipse at 15% 80%,rgba(43,105,161,.28),transparent 55%),radial-gradient(ellipse at 82% 18%,rgba(111,66,159,.25),transparent 55%),linear-gradient(145deg,#080c16,#151426); }
+body.telly-preset-family .telly-studio__preview { background:radial-gradient(ellipse at 18% 78%,rgba(154,105,69,.25),transparent 58%),linear-gradient(145deg,#17130f,#27201a 52%,#11100e); }
+body.telly-preset-champagne .telly-studio__preview { background:radial-gradient(ellipse at 18% 82%,rgba(120,84,48,.26),transparent 58%),linear-gradient(145deg,#090909,#1c1914 50%,#090909); }
