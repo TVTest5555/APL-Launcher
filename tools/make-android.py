@@ -1,8 +1,8 @@
-"""Builds APL Launcher for Android TV and Google TV: two .apk files.
+"""Builds Project Telly for Android TV and Google TV: two .apk files.
 
     apl-launcher-v<V>-android.apk               the launcher (no accessibility service: it installs without a Play
                                                 Protect warning)
-    apl-launcher-home-button-v<V>-android.apk   APL Launcher Home Button, optional: the accessibility service for the
+    apl-launcher-home-button-v<V>-android.apk   Project Telly Remote, optional: the accessibility service for the
                                                 remote's Home and play/pause buttons (android/homebutton). Signed with
                                                 the same key as the launcher, or the two can't talk.
 
@@ -145,8 +145,8 @@ font = None
 for f in (os.path.join(L, "fonts", "SFPRODISPLAYBOLD.OTF"), "C:/Windows/Fonts/segoeuib.ttf", "C:/Windows/Fonts/arialbd.ttf", "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"):
     if os.path.exists(f):
         font = ImageFont.truetype(f, 34); break
-draw.text((132, 52), "APL", fill=(255, 255, 255), font=font or ImageFont.load_default())
-draw.text((132, 90), "Launcher", fill=(255, 255, 255), font=font or ImageFont.load_default())
+draw.text((132, 52), "Project", fill=(222, 198, 151), font=font or ImageFont.load_default())
+draw.text((132, 90), "Telly", fill=(222, 198, 151), font=font or ImageFont.load_default())
 os.makedirs(os.path.join(MAIN, "res", "drawable"), exist_ok=True)
 banner.save(os.path.join(MAIN, "res", "drawable", "banner.png"))
 
@@ -181,8 +181,8 @@ small = None
 for f in (os.path.join(L, "fonts", "SFPRODISPLAYBOLD.OTF"), "C:/Windows/Fonts/segoeuib.ttf", "C:/Windows/Fonts/arialbd.ttf", "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"):
     if os.path.exists(f):
         small = ImageFont.truetype(f, 30); break
-hdraw.text((132, 54), "Home", fill=(255, 255, 255), font=small or ImageFont.load_default())
-hdraw.text((132, 90), "Button", fill=(255, 255, 255), font=small or ImageFont.load_default())
+hdraw.text((132, 54), "Telly", fill=(222, 198, 151), font=small or ImageFont.load_default())
+hdraw.text((132, 90), "Remote", fill=(222, 198, 151), font=small or ImageFont.load_default())
 os.makedirs(os.path.join(HB, "res", "drawable"), exist_ok=True)
 hbanner.save(os.path.join(HB, "res", "drawable", "banner.png"))
 
@@ -204,6 +204,7 @@ keytool = os.path.join(java, "bin", "keytool") if java else "keytool"
 # ---- the signing key (see the top of this file): APL Launcher's own, never APL TV's
 args = [gradle, "-p", AND, "--no-daemon", "-q", "assembleRelease", "-PaplVersion=" + version] + (["-PaplDebuggable=1"] if dev else [])
 testkey = False
+ephemeral_key = False
 jks, pw = os.environ.get("APL_KEYSTORE_FILE"), os.environ.get("APL_KEYSTORE_PASS")
 if not jks:
     if os.environ.get("APL_KEYSTORE_DIR"):
@@ -213,6 +214,7 @@ if not jks:
                [os.path.join(os.environ.get("APPDATA") or os.path.expanduser("~"), "APL-Launcher")]
     keydir = next((d for d in dirs if os.path.exists(os.path.join(d, "apl-launcher-release.jks"))), None)
     if not keydir and "--new-key" in sys.argv:
+        ephemeral_key = True
         keydir = dirs[0]
         os.makedirs(keydir, exist_ok=True)
         jks, pwfile = os.path.join(keydir, "apl-launcher-release.jks"), os.path.join(keydir, "apl-launcher-release.txt")
@@ -245,16 +247,16 @@ print("APL Launcher", version, "for Android:", "release" if release else ("dev" 
 if subprocess.call(args, env=env, shell=False) != 0:
     sys.exit("the Android build failed (see above)")
 os.makedirs(out, exist_ok=True)
-suffix = ("" if release else ("-dev" if dev else "-personal")) + ("-testkey" if testkey else "")
+suffix = ("" if release else ("-dev" if dev else "-personal")) + ("-testkey" if testkey else "") + ("-temporary-key" if ephemeral_key else "")
 finals = []
-for module, name, fixed in (("app", "apl-launcher", "apl-launcher-android.apk"), ("homebutton", "apl-launcher-home-button", "apl-launcher-home-button.apk")):
+for module, name, fixed in (("app", "project-telly", "project-telly.apk"), ("homebutton", "project-telly-remote", "project-telly-remote.apk")):
     apk = os.path.join(AND, module, "build", "outputs", "apk", "release", module + "-release.apk")
     final = os.path.join(out, "%s-v%s-android%s.apk" % (name, version, suffix))
     shutil.copy2(apk, final)
     finals.append(final)
     print("package:", final, os.path.getsize(final), "bytes")
     # The release also carries each one under a fixed name: .../releases/latest/download/<name>, for Downloader
-    if release:
+    if release and not ephemeral_key:
         shutil.copy2(final, os.path.join(out, fixed))
 if release:
     import hashlib
