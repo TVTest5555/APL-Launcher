@@ -2205,6 +2205,12 @@
     function applyTheme() {
         applyTellyPreset();
         var body = document.body;
+        var glass = APL.sys.pref("tellyGlassStyle") || "champagne";
+        var motion = APL.sys.pref("tellyAmbientStyle") || "flow";
+        ["champagne", "ice", "clear"].forEach(function (x) { body.classList.remove("telly-glass-" + x); });
+        ["flow", "aurora", "still"].forEach(function (x) { body.classList.remove("telly-bg-" + x); });
+        body.classList.add("telly-glass-" + glass);
+        body.classList.add("telly-bg-" + motion);
         var scale = APL.sys.pref("tellyTileScale") || "standard";
         body.classList.remove("telly-scale-compact", "telly-scale-large");
         if (scale !== "standard") body.classList.add("telly-scale-" + scale);
