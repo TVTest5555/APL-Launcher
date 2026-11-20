@@ -1746,6 +1746,9 @@
             global.APL_BOOT_OK = true;          // the version (installed or updated) starts fine
             if (requestedAction()) runAction(requestedAction());   // opened for a specific reason: TizenTube, App Switcher…
             hideBoot();
+            if (!requestedAction() && !APL.sys.pref("tellySetupComplete")) {
+                setTimeout(function () { if (APL.tellyStudio) APL.tellyStudio.open(); }, 900);
+            }
         });
     }
 
