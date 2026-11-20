@@ -101,3 +101,76 @@ body.telly-bg-aurora #tellyAmbient {
 }
 body.telly-bg-still #tellyAmbient,
 body.telly-bg-still #tellyAmbient::before { animation: none; }
+
+/* Five complete, audience-led presets. All art is CSS-generated and ships locally. */
+/* Family Room: warm, welcoming, legible and low-glare for shared household viewing. */
+body.telly-preset-family {
+  --telly-edge: rgba(238, 216, 180, .58);
+  --telly-edge-hot: rgba(255, 241, 216, .94);
+  --telly-glow: rgba(221, 179, 116, .16);
+  --telly-glass-fill: rgba(39, 32, 27, .30);
+}
+body.telly-preset-family #tellyAmbient {
+  background:
+    radial-gradient(ellipse 44% 35% at 18% 78%, rgba(154, 105, 69, .27), transparent 72%),
+    radial-gradient(ellipse 42% 38% at 82% 22%, rgba(173, 143, 102, .22), transparent 72%),
+    linear-gradient(132deg, #17130f, #27201a 52%, #11100e);
+}
+/* Cinema: dark, immersive and restrained; the app artwork stays centre stage. */
+body.telly-preset-cinema {
+  --telly-edge: rgba(219, 194, 156, .62);
+  --telly-edge-hot: rgba(255, 235, 204, .96);
+  --telly-glow: rgba(203, 162, 103, .20);
+  --telly-glass-fill: rgba(13, 15, 20, .30);
+}
+body.telly-preset-cinema #tellyAmbient {
+  background:
+    radial-gradient(ellipse 48% 34% at 50% 100%, rgba(112, 78, 62, .24), transparent 72%),
+    radial-gradient(ellipse 34% 38% at 85% 12%, rgba(61, 76, 98, .20), transparent 72%),
+    linear-gradient(145deg, #05070b, #15151a 55%, #07080c);
+}
+/* Minimal OLED: near-black, clean edges and as little visual distraction as possible. */
+body.telly-preset-minimal {
+  --telly-edge: rgba(255,255,255,.28);
+  --telly-edge-hot: rgba(255,255,255,.88);
+  --telly-glow: rgba(255,255,255,.09);
+  --telly-glass-fill: rgba(255,255,255,.045);
+}
+body.telly-preset-minimal #tellyAmbient {
+  opacity: .34;
+  background: #000;
+}
+body.telly-preset-minimal #tellyAmbient::before { display: none; }
+/* Gaming: crisp graphite, electric violet and cyan accents, not a neon overload. */
+body.telly-preset-gamer {
+  --telly-edge: rgba(112, 205, 229, .62);
+  --telly-edge-hot: rgba(174, 238, 255, .98);
+  --telly-glow: rgba(104, 155, 255, .23);
+  --telly-glass-fill: rgba(16, 20, 33, .30);
+}
+body.telly-preset-gamer #tellyAmbient {
+  background:
+    radial-gradient(ellipse 38% 36% at 15% 78%, rgba(43, 105, 161, .30), transparent 72%),
+    radial-gradient(ellipse 40% 34% at 82% 18%, rgba(111, 66, 159, .27), transparent 72%),
+    linear-gradient(135deg, #080c16, #151426 52%, #080c12);
+}
+/* Champagne Signature: premium black and champagne finish for design-conscious users. */
+body.telly-preset-champagne {
+  --telly-edge: rgba(218, 183, 129, .72);
+  --telly-edge-hot: rgba(255, 226, 180, 1);
+  --telly-glow: rgba(221, 174, 104, .28);
+  --telly-glass-fill: rgba(24, 21, 17, .29);
+}
+body.telly-preset-champagne #tellyAmbient {
+  background:
+    radial-gradient(ellipse 40% 34% at 18% 82%, rgba(120, 84, 48, .28), transparent 72%),
+    radial-gradient(ellipse 40% 38% at 80% 18%, rgba(164, 129, 79, .25), transparent 72%),
+    linear-gradient(135deg, #090909, #1c1914 50%, #090909);
+}
+body.telly-preset-minimal .tile__card,
+body.telly-preset-family .tile__card,
+body.telly-preset-cinema .tile__card,
+body.telly-preset-gamer .tile__card,
+body.telly-preset-champagne .tile__card {
+  border-color: color-mix(in srgb, var(--telly-edge) 72%, transparent);
+}
