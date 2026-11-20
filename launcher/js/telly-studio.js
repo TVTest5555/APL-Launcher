@@ -62,11 +62,13 @@
         var strip = el("div", "telly-studio__preview-tiles");
         visibleApps().slice(0, 6).forEach(function (app) {
             var tile = el("div", "telly-studio__mock-tile");
-            if (APL.makeTile) {
-                var artwork = APL.makeTile(app, 0);
-                artwork.classList.add("telly-studio__real-tile");
-                tile.appendChild(artwork);
-            } else { tile.textContent = app.name; }
+            var artwork = APL.tileOf ? APL.tileOf(app) : (app.tile || app.icon || "");
+            if (artwork) {
+                tile.style.backgroundImage = "linear-gradient(180deg, transparent 52%, rgba(0,0,0,.72)), url('" + artwork + "')";
+                tile.style.backgroundSize = "cover";
+                tile.style.backgroundPosition = "center";
+            }
+            tile.appendChild(el("span", "", app.name || "App"));
             strip.appendChild(tile);
         });
         if (!strip.children.length) strip.appendChild(el("div", "telly-studio__empty", "Choose apps to build your home screen"));
