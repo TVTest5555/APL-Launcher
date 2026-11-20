@@ -34,3 +34,7 @@
  .telly-studio__preview { min-height:190px; }
  .telly-studio__mock-tile { min-height:56px; }
 }
+
+.telly-studio__mock-tile { position:relative; display:block; padding:0; overflow:hidden; min-width:0; }
+.telly-studio__real-tile { transform:scale(.34); transform-origin:top left; pointer-events:none; }
+.telly-studio__real-tile .tile__label { opacity:1; }
