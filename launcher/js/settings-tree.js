@@ -162,7 +162,7 @@
             ], APL.t("Theme, Top Shelf, visual effects.")),
 
             /* -------- Home Screen -------- */
-            menu(APL.t("Home Screen"), "grid", [
+            menu("Personalise Home Screen", "grid", [
                 menu(APL.t("Show on Home Screen"), "apps", [
                     // The launcher's own Smart Hub tile first: the way out to Samsung's home
                     { type: "hide", label: "Smart Hub", id: "apl.samsunghome",
