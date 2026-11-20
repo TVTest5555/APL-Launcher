@@ -167,3 +167,82 @@ body.telly-preset-champagne #tellyAmbient {
     radial-gradient(ellipse 40% 38% at 80% 18%, rgba(164, 129, 79, .25), transparent 72%),
     linear-gradient(135deg, #090909, #1c1914 50%, #090909);
 }
+/* Frost: an intentionally aesthetic icy glass finish with a cool moving edge-light. */
+body.telly-preset-frost {
+  --telly-edge: rgba(156, 220, 255, .78);
+  --telly-edge-hot: rgba(226, 248, 255, 1);
+  --telly-glow: rgba(83, 184, 239, .34);
+  --telly-glass-fill: rgba(162, 211, 237, .095);
+}
+body.telly-preset-frost #tellyAmbient {
+  opacity: .88;
+  background:
+    radial-gradient(ellipse 45% 35% at 20% 72%, rgba(77, 179, 225, .30), transparent 72%),
+    radial-gradient(ellipse 44% 40% at 84% 24%, rgba(171, 220, 246, .27), transparent 72%),
+    linear-gradient(135deg, #071422, #142e42 48%, #081421);
+}
+body.telly-preset-frost #tellyAmbient::before {
+  background:
+    radial-gradient(ellipse 34% 28% at 26% 30%, rgba(220, 247, 255, .24), transparent 72%),
+    radial-gradient(ellipse 38% 30% at 76% 68%, rgba(92, 199, 244, .19), transparent 72%);
+}
+body.telly-preset-frost .tile__card {
+  background: linear-gradient(145deg, rgba(210,241,255,.17), rgba(67,132,167,.10) 48%, rgba(11,34,54,.30));
+  border-color: rgba(179, 230, 255, .48);
+  box-shadow: inset 0 1px 0 rgba(244,252,255,.38), inset 0 0 22px rgba(143,216,249,.10), 0 14px 30px rgba(0,0,0,.28);
+}
+body.telly-preset-frost .tile__card::before {
+  border-color: rgba(183,235,255,.72);
+  background: linear-gradient(130deg, rgba(255,255,255,.25), transparent 34%, rgba(111,204,243,.09) 72%, rgba(255,255,255,.12));
+  animation: tellyFrostEdge 7s ease-in-out infinite alternate;
+}
+body.telly-preset-frost .tile.is-focused .tile__card {
+  box-shadow: 0 0 34px rgba(107,205,255,.35), 0 25px 46px rgba(0,0,0,.48), inset 0 0 24px rgba(208,244,255,.15);
+}
+@keyframes tellyFrostEdge { from { opacity: .48; } to { opacity: .94; } }
+/* Aurora: Northern-light ribbons on a deep ink background. */
+body.telly-preset-aurora {
+  --telly-edge: rgba(150, 224, 206, .68);
+  --telly-edge-hot: rgba(212, 255, 240, 1);
+  --telly-glow: rgba(93, 226, 192, .25);
+  --telly-glass-fill: rgba(16, 31, 34, .28);
+}
+body.telly-preset-aurora #tellyAmbient {
+  background:
+    radial-gradient(ellipse 42% 46% at 12% 78%, rgba(38, 171, 147, .40), transparent 72%),
+    radial-gradient(ellipse 43% 45% at 84% 18%, rgba(112, 91, 192, .40), transparent 72%),
+    radial-gradient(ellipse 36% 36% at 58% 52%, rgba(36, 130, 161, .29), transparent 72%),
+    linear-gradient(135deg, #050e17, #101b28 48%, #070d18);
+}
+body.telly-preset-aurora #tellyAmbient::before { animation-duration: 23s; }
+/* Retro Wave: a nostalgic synthwave look, carefully softened for a living-room screen. */
+body.telly-preset-retro {
+  --telly-edge: rgba(237, 138, 225, .72);
+  --telly-edge-hot: rgba(255, 211, 249, 1);
+  --telly-glow: rgba(226, 91, 204, .24);
+  --telly-glass-fill: rgba(33, 18, 48, .30);
+}
+body.telly-preset-retro #tellyAmbient {
+  background:
+    radial-gradient(ellipse 54% 50% at 50% 78%, rgba(193, 64, 157, .35), transparent 72%),
+    radial-gradient(ellipse 40% 38% at 16% 20%, rgba(49, 150, 200, .20), transparent 72%),
+    linear-gradient(180deg, #080d20 0%, #211638 62%, #100c20 100%);
+}
+body.telly-preset-retro #tellyAmbient::after {
+  opacity: .28;
+  background: repeating-linear-gradient(0deg, transparent 0 42px, rgba(113,194,231,.13) 43px, transparent 45px 84px);
+  mask-image: linear-gradient(180deg, transparent 12%, #000 64%, transparent 100%);
+}
+/* User-controlled spacing and tile scale. */
+body.telly-spacing-tight { --gap-y: 70px; }
+body.telly-spacing-balanced { --gap-y: 90px; }
+body.telly-spacing-relaxed { --gap-y: 110px; }
+body.telly-scale-compact .tile { transform: scale(.94); }
+body.telly-scale-large .tile { transform: scale(1.055); }
+body.telly-scale-compact .tile.is-focused { transform: scale(1.15); }
+body.telly-scale-large .tile.is-focused { transform: scale(1.24); }
+body.telly-labels-on .tile__label { opacity: 1; }
+body.perf.telly-preset-frost .tile__card::before,
+body.reduce-motion.telly-preset-frost .tile__card::before { animation: none; }
+body.reduce-motion #tellyAmbient, body.perf #tellyAmbient { animation-play-state: paused; }
+body.reduce-motion #tellyAmbient::before, body.perf #tellyAmbient::before { animation-play-state: paused; }
