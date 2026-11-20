@@ -62,7 +62,7 @@
     </queries>
 
     <application
-        android:label="APL Launcher"
+        android:label="Project Telly"
         android:icon="@mipmap/ic_launcher"
         android:banner="@drawable/banner"
         android:allowBackup="false"
