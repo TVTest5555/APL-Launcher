@@ -116,6 +116,20 @@
                 };
                 items.push(choice);
             });
+        } else if (page === "setup") {
+            title.textContent = "Set up Project Telly";
+            addChoice(items, "1 · Choose a theme", "Pick one of the eight visual presets", false, function () { page = "themes"; render(); });
+            addChoice(items, "2 · Choose your apps", "Show only the apps you want on your home screen", false, function () { page = "apps"; render(); });
+            addChoice(items, "3 · Arrange your layout", "Set tile size, spacing, app names and rows", false, function () { page = "layout"; render(); });
+            addChoice(items, "4 · Set up the Home button", "Install Project Telly Remote, then enable its Accessibility service", false, function () {
+                if (APL.sys.openAccessibilitySettings) APL.sys.openAccessibilitySettings();
+                else APL.toast("On Android TV, open Settings → Accessibility → Project Telly Remote.");
+            });
+            addChoice(items, "Finish setup", "Your choices are saved automatically", false, function () {
+                APL.sys.setPref("tellySetupComplete", true);
+                closeStudio();
+                APL.toast("Project Telly setup complete", true);
+            });
         } else {
             title.textContent = "Shape your layout";
             [5, 6, 7].forEach(function (n) {
@@ -191,7 +205,7 @@
         header.appendChild(close);
         shell.appendChild(header);
         var tabs = el("div", "telly-studio__tabs");
-        [["themes","Themes"],["apps","My Apps"],["layout","Layout"]].forEach(function (v) {
+        [["setup","Start"],["themes","Themes"],["apps","My Apps"],["layout","Layout"]].forEach(function (v) {
             var tab = el("div", "telly-studio__tab", v[1]);
             tab.dataset.page = v[0];
             tabs.appendChild(tab);
