@@ -1,0 +1,63 @@
+name: Project Telly Android preview
+
+on:
+  push:
+    branches:
+      - "project-telly/**"
+    paths:
+      - "android/**"
+      - "launcher/**"
+      - "tools/make-android.py"
+      - ".github/workflows/project-telly-android.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-android:
+    name: Build test APKs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Python dependency
+        run: python -m pip install --upgrade Pillow
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Install Android SDK packages
+        run: |
+          yes | sdkmanager --licenses
+          sdkmanager "platforms;android-35" "build-tools;35.0.0"
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: "8.10.2"
+
+      - name: Build development-signed APKs
+        run: python tools/make-android.py --release --new-key
+
+      - name: Upload APK artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: project-telly-android-preview
+          path: |
+            dist/project-telly-*-temporary-key.apk
+            dist/SHA256SUMS-apk.txt
+          if-no-files-found: error
+          retention-days: 14
