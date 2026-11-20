@@ -11,7 +11,9 @@
         ["champagne", "Champagne Signature", "Black glass with champagne edges"],
         ["frost", "Frost", "Icy glass, cool light and moving frost"],
         ["aurora", "Aurora", "Atmospheric green and violet light"],
-        ["retro", "Retro Wave", "Soft synthwave colour and nostalgia"]
+        ["retro", "Retro Wave", "Soft synthwave colour and nostalgia"],
+        ["obsidian", "Obsidian", "Carbon-black glass with molten amber light"],
+        ["sakura", "Sakura", "Soft rose, plum and lavender with a calm glow"]
     ];
     function el(tag, cls, text) {
         var n = document.createElement(tag);
