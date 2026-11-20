@@ -1,0 +1,89 @@
+/* Project Telly premium visual layer.
+   Original CSS-only ambient artwork: no downloaded wallpaper, video or third-party image. */
+:root {
+  --telly-edge: rgba(232, 205, 160, .62);
+  --telly-edge-hot: rgba(255, 239, 211, .92);
+  --telly-glass-fill: rgba(20, 22, 29, .24);
+  --telly-glow: rgba(214, 177, 119, .22);
+}
+#tellyAmbient {
+  position: fixed; inset: -12%;
+  z-index: 1; pointer-events: none; overflow: hidden;
+  opacity: .72;
+  background:
+    radial-gradient(ellipse 44% 34% at 18% 78%, rgba(95, 75, 116, .25), transparent 72%),
+    radial-gradient(ellipse 46% 40% at 82% 22%, rgba(171, 128, 80, .24), transparent 72%),
+    radial-gradient(ellipse 42% 38% at 52% 56%, rgba(49, 90, 106, .18), transparent 72%),
+    linear-gradient(132deg, #080a10 0%, #15141a 48%, #080a10 100%);
+  animation: tellyAmbientDrift 42s ease-in-out infinite alternate;
+  will-change: transform;
+}
+#tellyAmbient::before, #tellyAmbient::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+}
+#tellyAmbient::before {
+  background:
+    radial-gradient(ellipse 36% 24% at 24% 28%, rgba(255, 225, 184, .13), transparent 72%),
+    radial-gradient(ellipse 32% 30% at 76% 72%, rgba(125, 167, 181, .13), transparent 72%);
+  filter: blur(34px);
+  animation: tellyAmbientFloat 30s ease-in-out infinite alternate;
+}
+#tellyAmbient::after {
+  opacity: .18;
+  background: repeating-linear-gradient(118deg, transparent 0 110px, rgba(255,255,255,.035) 111px, transparent 113px 230px);
+  mask-image: linear-gradient(90deg, transparent, #000 24%, #000 76%, transparent);
+}
+@keyframes tellyAmbientDrift { from { transform: translate3d(-1.2%, .5%, 0) scale(1); } to { transform: translate3d(1.2%, -.5%, 0) scale(1.04); } }
+@keyframes tellyAmbientFloat { from { transform: translate3d(-2%, 1%, 0) scale(.96); } to { transform: translate3d(2%, -1%, 0) scale(1.06); } }
+/* Keep the effect behind all controls and app artwork. */
+.home, .status, .shelfinfo, .hint, .toast, .settings, .cc, .search, .sources, .profiles { position: relative; z-index: 5; }
+.home { z-index: 5; }
+.status { z-index: 10; }
+.shelfinfo, .hint { z-index: 9; }
+.settings { z-index: 30; }
+.cc { z-index: 35; }
+.search, .sources, .profiles { z-index: 36; }
+.toast { z-index: 50; }
+.boot { z-index: 100; }
+/* Glass-edge app cards: subtle champagne rim, inner reflection and lifted depth. */
+.tile__card {
+  background: var(--telly-glass-fill);
+  border: 1px solid rgba(255,255,255,.18);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.24),
+              inset 0 0 0 1px rgba(255,255,255,.035),
+              0 12px 28px rgba(0,0,0,.24);
+  isolation: isolate;
+}
+.tile__card::before {
+  content: ""; position: absolute; inset: 0; border-radius: inherit;
+  pointer-events: none; z-index: 2;
+  border: 1px solid var(--telly-edge);
+  opacity: .55;
+  background: linear-gradient(145deg, rgba(255,255,255,.16), transparent 26%, transparent 72%, rgba(255,255,255,.055));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.22), inset 0 -1px 0 rgba(0,0,0,.22);
+}
+.tile__card::after {
+  opacity: .32;
+  background: linear-gradient(145deg, rgba(255,255,255,.25), rgba(255,255,255,.025) 34%, transparent 58%, rgba(255,255,255,.06));
+}
+.tile.is-focused .tile__card {
+  border-color: var(--telly-edge-hot);
+  box-shadow: 0 0 0 1px rgba(255,231,194,.22),
+              0 0 28px var(--telly-glow),
+              0 24px 48px rgba(0,0,0,.48),
+              inset 0 1px 0 rgba(255,255,255,.42);
+}
+.tile.is-focused .tile__card::before { opacity: 1; border-color: var(--telly-edge-hot); }
+.tile.is-focused .tile__card::after { opacity: .8; }
+/* Glass remains visible on icon-only tiles too. */
+.tile__card--icon::before { opacity: .7; }
+.tile__card--icon::after { content: ""; opacity: .16; }
+.perf .tile__card { box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 8px 20px rgba(0,0,0,.22); }
+.perf .tile.is-focused .tile__card { box-shadow: 0 0 0 1px var(--telly-edge-hot), 0 0 20px var(--telly-glow), 0 16px 28px rgba(0,0,0,.4); }
+/* Champagne accent for focus, without changing app artwork or logos. */
+.tile.is-focused .tile__label { color: #f5dfbd; }
+.reduce-motion #tellyAmbient, .perf #tellyAmbient { animation: none; }
+.reduce-motion #tellyAmbient::before, .perf #tellyAmbient::before { animation: none; }
+@media (prefers-reduced-motion: reduce) {
+  #tellyAmbient, #tellyAmbient::before { animation: none !important; }
+}
