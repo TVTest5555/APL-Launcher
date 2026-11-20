@@ -12,5 +12,5 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "APL Launcher"
+rootProject.name = "Project Telly"
 include ":app", ":homebutton"
