@@ -87,7 +87,18 @@
         if (global.APL && global.APL.applyTellyPreset) global.APL.applyTellyPreset();
     }
 
-    function build() {
+    function applyTellyLayout() {
+        var body = global.document && global.document.body;
+        if (!body) return;
+        ["compact", "large"].forEach(function (x) { body.classList.remove("telly-scale-" + x); });
+        var scale = sys.pref("tellyTileScale") || "standard";
+        if (scale !== "standard") body.classList.add("telly-scale-" + scale);
+        body.classList.remove("telly-spacing-tight", "telly-spacing-balanced", "telly-spacing-relaxed");
+        body.classList.add("telly-spacing-" + (sys.pref("tellySpacing") || "balanced"));
+        body.classList.toggle("telly-labels-on", sys.pref("tellyLabels") !== "off");
+    }
+
+    function build() {\n        applyTellyLayout();
         applyTellyVisuals();
         var apps = ((APL.allApps && APL.allApps()) || []).filter(function (a) { return !a.virtual; });
         /* The language is fixed when the launcher starts (i18n.js): changing it reloads the launcher. */
@@ -109,7 +120,7 @@
                         ["champagne", "Champagne Signature"]
                     ], "Five complete looks designed for different viewing preferences. You can still adjust the glass and background separately.", applyTellyPreset)
                 ], "Start with a complete look, then personalise it."),
-                menu("Project Telly Design", "sparkle", [
+                menu("Project Telly Studio", "sparkle", [
                     choice("Glass Finish", "tellyGlassStyle",
                         [["champagne", "Champagne Edge"], ["ice", "Arctic Edge"], ["clear", "Clear Glass"]],
                         "Choose the glass surface and illuminated edge used by app tiles.",
@@ -117,8 +128,25 @@
                     choice("Animated Background", "tellyAmbientStyle",
                         [["flow", "Ambient Flow"], ["aurora", "Aurora Glow"], ["still", "Static"]],
                         "Choose an original, procedurally generated background. Static disables movement.",
-                        applyTellyVisuals)
-                ], "Personalise the Project Telly glass finish and ambient background."),
+                        applyTellyVisuals),
+                    choice("Apps Per Row", "appsPerRow",
+                        [[5, "5 Apps"], [6, "6 Apps"], [7, "7 Apps"]],
+                        "Change the number of apps shown across each row. The screen updates immediately."),
+                    choice("Tile Size", "tellyTileScale",
+                        [["compact", "Compact"], ["standard", "Standard"], ["large", "Large"]],
+                        "Choose a smaller or larger app tile appearance.", applyTellyLayout),
+                    choice("App Labels", "tellyLabels",
+                        [["on", "Show Names"], ["off", "Hide Names"]],
+                        "Show or hide app names below their tiles.", applyTellyLayout),
+                    choice("Tile Spacing", "tellySpacing",
+                        [["tight", "Tight"], ["balanced", "Balanced"], ["relaxed", "Relaxed"]],
+                        "Adjust the vertical breathing room between rows.", applyTellyLayout),
+                    action("Open Visual Layout Studio", function () {
+                        APL.settings.close();
+                        if (APL.tellyStudio) APL.tellyStudio.open();
+                    }, "Preview your layout, choose apps and organise your home screen.", "grid")
+                ], "Adjust the look and layout of your television home screen."),
+                
                 choice(APL.t("Theme"), "appearance", [["light", APL.t("Light")], ["dark", APL.t("Dark")], ["auto", APL.t("Automatic")]],
                     APL.t("Light or dark for backgrounds and menus. Automatic switches to dark at sunset and to light at sunrise.")),
                 menu(APL.t("Top Shelf"), "photo", [
