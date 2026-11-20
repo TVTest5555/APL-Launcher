@@ -111,7 +111,7 @@
         var tiles = [root.querySelector(".telly-studio__close")].concat(tabs, items);
         if (nav) {
             nav.setTiles(tiles);
-            var focusAt = 0;
+            var focusAt = 1;
             for (var i = 0; i < tiles.length; i++) if (tiles[i]._run && tiles[i].classList.contains("is-active")) { focusAt = i; break; }
             nav.focus(focusAt);
         }
@@ -120,7 +120,7 @@
         preview(pv);
     }
     function open() {
-        if (root) { root.classList.add("is-open"); render(); return; }
+        if (root) { root.classList.add("is-open"); render(); if (nav) APL.pushNav(nav); return; }
         root = el("div", "telly-studio");
         var shell = el("div", "telly-studio__shell");
         var header = el("header", "telly-studio__header");
