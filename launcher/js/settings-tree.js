@@ -80,7 +80,7 @@
         var body = global.document && global.document.body;
         if (!body) return;
         var preset = sys.pref("tellyPreset") || "cinema";
-        ["family", "cinema", "minimal", "gamer", "champagne"].forEach(function (name) {
+        ["family", "cinema", "minimal", "gamer", "champagne", "frost", "aurora", "retro"].forEach(function (name) {
             body.classList.remove("telly-preset-" + name);
         });
         body.classList.add("telly-preset-" + preset);
