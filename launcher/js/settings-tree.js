@@ -125,7 +125,7 @@
                         ["retro", "Retro Wave"],
                         ["obsidian", "Obsidian"],
                         ["sakura", "Sakura"]
-                    ], "Eight complete looks designed for different viewing preferences. You can still adjust the glass and background separately.", applyTellyPreset)
+                    ], "Ten complete looks designed for different viewing preferences. You can still adjust the glass and background separately.", applyTellyPreset)
                 ], "Start with a complete look, then personalise it."),
                 menu("Project Telly Studio", "sparkle", [
                     choice("Glass Finish", "tellyGlassStyle",
