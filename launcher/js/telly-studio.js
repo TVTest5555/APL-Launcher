@@ -108,7 +108,7 @@
         });
         var tabs = [].slice.call(root.querySelectorAll("[data-page]"));
         tabs.forEach(function (tab) { tab.classList.toggle("is-active", tab.dataset.page === page); });
-        var tiles = tabs.concat(items);
+        var tiles = [root.querySelector(".telly-studio__close")].concat(tabs, items);
         if (nav) {
             nav.setTiles(tiles);
             var focusAt = 0;
