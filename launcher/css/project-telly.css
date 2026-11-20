@@ -167,10 +167,3 @@ body.telly-preset-champagne #tellyAmbient {
     radial-gradient(ellipse 40% 38% at 80% 18%, rgba(164, 129, 79, .25), transparent 72%),
     linear-gradient(135deg, #090909, #1c1914 50%, #090909);
 }
-body.telly-preset-minimal .tile__card,
-body.telly-preset-family .tile__card,
-body.telly-preset-cinema .tile__card,
-body.telly-preset-gamer .tile__card,
-body.telly-preset-champagne .tile__card {
-  border-color: color-mix(in srgb, var(--telly-edge) 72%, transparent);
-}
