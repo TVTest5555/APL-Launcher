@@ -249,5 +249,7 @@
         if (nav) APL.popNav(nav);
         if (APL.refreshHome) APL.refreshHome();
     }
+    var homeButton = document.getElementById("telly-personalise");
+    if (homeButton) homeButton.addEventListener("click", function () { open(); });
     APL.tellyStudio = { open: open, close: closeStudio, isOpen: function () { return !!root && root.classList.contains("is-open"); } };
 })(window);
