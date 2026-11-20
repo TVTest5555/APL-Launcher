@@ -498,6 +498,7 @@
     };
     sys.sleepNow = function () { return B.sleep() ? Promise.resolve() : fail(needsService()); };
     sys.openSamsungSettings = function (path) { B.openSettings("settings"); return Promise.resolve(path); };
+    sys.openAccessibilitySettings = function () { return B.openSettings("accessibility"); };
     sys.registerKeys = function () {};
 
     /* ---------- Sources: the TV's HDMI inputs (Bridge.tvInputs) ----------
