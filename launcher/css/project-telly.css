@@ -246,3 +246,9 @@ body.perf.telly-preset-frost .tile__card::before,
 body.reduce-motion.telly-preset-frost .tile__card::before { animation: none; }
 body.reduce-motion #tellyAmbient, body.perf #tellyAmbient { animation-play-state: paused; }
 body.reduce-motion #tellyAmbient::before, body.perf #tellyAmbient::before { animation-play-state: paused; }
+
+body.telly-labels-off .tile__label { opacity: 0 !important; }
+.rows { row-gap: var(--telly-row-gap, 90px); }
+body.telly-spacing-tight { --telly-row-gap: 70px; }
+body.telly-spacing-balanced { --telly-row-gap: 90px; }
+body.telly-spacing-relaxed { --telly-row-gap: 110px; }
