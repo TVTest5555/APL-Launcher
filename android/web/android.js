@@ -1,5 +1,5 @@
 /* ============================================================
-   android.js — APL Launcher on Android TV and Google TV.
+   android.js — Project Telly on Android TV and Google TV.
 
    The Android app (android/, MainActivity.kt) shows the launcher's page
    in a WebView and gives it window.APLAndroid (Bridge.kt). This file,
@@ -34,13 +34,13 @@
     if (FR) {
         var add = {
             "This needs root on Android.": "Il faut le root sur Android.",
-            "Turn on APL Launcher Home Button first (Settings › Android TV).": "Activez d'abord APL Launcher Home Button (Réglages › Android TV).",
-            "Install APL Launcher Home Button first (Settings › Android TV).": "Installez d'abord APL Launcher Home Button (Réglages › Android TV).",
-            "Get APL Launcher Home Button": "Obtenir APL Launcher Home Button",
+            "Turn on Project Telly Remote first (Settings › Android TV).": "Activez d'abord Project Telly Remote (Réglages › Android TV).",
+            "Install Project Telly Remote first (Settings › Android TV).": "Installez d'abord Project Telly Remote (Réglages › Android TV).",
+            "Get Project Telly Remote": "Obtenir Project Telly Remote",
             "Not installed": "Pas installé",
-            "Home, holding Home and ⏯ over every app need a small second app, APL Launcher Home Button. It is separate because Google Play Protect blocks any app installed outside the Play Store that uses Accessibility.":
-                "Accueil, l'appui long sur Accueil et ⏯ par-dessus les apps demandent une petite seconde app, APL Launcher Home Button. Elle est à part car Google Play Protect bloque toute app installée hors du Play Store qui utilise l'accessibilité.",
-            "To install it: in the Play Store, open your profile › Settings › Play Protect and turn off “Scan apps with Play Protect”. Open the address below in Downloader and install it, then turn Play Protect back on. From a PC: adb install. Then turn it on in Accessibility.":
+            "Home, holding Home and ⏯ over every app need a small second app, Project Telly Remote. It is separate because Google Play Protect blocks any app installed outside the Play Store that uses Accessibility.":
+                "Accueil, l'appui long sur Accueil et ⏯ par-dessus les apps demandent une petite seconde app, Project Telly Remote. Elle est à part car Google Play Protect bloque toute app installée hors du Play Store qui utilise l'accessibilité.",
+            "Install the companion APK only from the official Project Telly release page. Keep Play Protect enabled, review Android’s warning, then turn on Project Telly Remote in Settings › Accessibility. The launcher itself works without this optional companion.":
                 "Pour l'installer : dans le Play Store, ouvrez votre profil › Paramètres › Play Protect et désactivez « Analyser les applications avec Play Protect ». Ouvrez l'adresse ci-dessous dans Downloader et installez-la, puis réactivez Play Protect. Depuis un PC : adb install. Ensuite, activez-la dans Accessibilité.",
             "Open Downloader": "Ouvrir Downloader",
             "Downloader code": "Code Downloader",
@@ -55,30 +55,30 @@
             "Android TV": "Android TV",
             "Google TV": "Google TV",
             "Home App": "App d'accueil",
-            "Make APL Launcher the Home App": "Faire d'APL Launcher l'app d'accueil",
+            "Make Project Telly the Home App": "Faire d'Project Telly l'app d'accueil",
             "The app Home on the remote opens, and the one the device starts on.": "L'app qu'ouvre le bouton Accueil de la télécommande, et celle sur laquelle l'appareil démarre.",
-            "Android asks which app to use: choose APL Launcher. If nothing opens, docs/android.md has the adb command.":
-                "Android demande quelle app utiliser : choisissez APL Launcher. Si rien ne s'ouvre, docs/android.md donne la commande adb.",
-            "APL Launcher is already the Home app.": "APL Launcher est déjà l'app d'accueil.",
+            "Android asks which app to use: choose Project Telly. If nothing opens, docs/android.md has the adb command.":
+                "Android demande quelle app utiliser : choisissez Project Telly. Si rien ne s'ouvre, docs/android.md donne la commande adb.",
+            "Project Telly is already the Home app.": "Project Telly est déjà l'app d'accueil.",
             "This device has no setting for it: see docs/android.md (adb).": "Cet appareil n'a pas ce réglage : voir docs/android.md (adb).",
             "Remote Buttons": "Touches de la télécommande",
             "Turn On the Remote Buttons": "Activer les touches de la télécommande",
-            "In Accessibility, choose APL Launcher Home Button and turn it on. Then Home opens APL Launcher, holding Home or ⏯ opens the Control Center over any app, and Sleep and the Sleep Timer work.":
-                "Dans Accessibilité, choisissez APL Launcher Home Button et activez-le. Accueil ouvre alors APL Launcher, l'appui long sur Accueil ou ⏯ ouvre le Centre de contrôle par-dessus n'importe quelle app, et la veille et la minuterie marchent.",
+            "In Accessibility, choose Project Telly Remote and turn it on. Then Home opens Project Telly, holding Home or ⏯ opens the Control Center over any app, and Sleep and the Sleep Timer work.":
+                "Dans Accessibilité, choisissez Project Telly Remote et activez-le. Accueil ouvre alors Project Telly, l'appui long sur Accueil ou ⏯ ouvre le Centre de contrôle par-dessus n'importe quelle app, et la veille et la minuterie marchent.",
             "Home Button": "Bouton Accueil",
-            "Android TV and Google TV keep their own launcher on the Home button, even once APL Launcher is chosen. APL Launcher: the remote buttons (Accessibility) take it and open APL Launcher.":
-                "Android TV et Google TV gardent leur propre launcher sur le bouton Accueil, même quand APL Launcher est choisi. APL Launcher : les touches de la télécommande (Accessibilité) le prennent et ouvrent APL Launcher.",
-            "Android chose APL Launcher, but this device keeps its own launcher on Home: turn on the remote buttons below.":
-                "Android a choisi APL Launcher, mais cet appareil garde son propre launcher sur Accueil : activez les touches de la télécommande, juste en dessous.",
+            "Android TV and Google TV keep their own launcher on the Home button, even once Project Telly is chosen. Project Telly: the remote buttons (Accessibility) take it and open Project Telly.":
+                "Android TV et Google TV gardent leur propre launcher sur le bouton Accueil, même quand Project Telly est choisi. Project Telly : les touches de la télécommande (Accessibilité) le prennent et ouvrent Project Telly.",
+            "Android chose Project Telly, but this device keeps its own launcher on Home: turn on the remote buttons below.":
+                "Android a choisi Project Telly, mais cet appareil garde son propre launcher sur Accueil : activez les touches de la télécommande, juste en dessous.",
             "Over Apps": "Sur les apps",
             "Accessibility": "Accessibilité",
             "Allowed": "Autorisé",
             "Root": "Root",
             "Not needed": "Pas nécessaire",
             "Found, not used": "Présent, pas utilisé",
-            "APL Launcher works without root. With root, a later version could close every app and reach deeper settings.":
-                "APL Launcher marche sans root. Avec le root, une version future pourrait fermer toutes les apps et atteindre des réglages plus profonds.",
-            "Setup guide: github.com/Knikt/APL-Launcher, docs/android.md.": "Guide d'installation : github.com/Knikt/APL-Launcher, docs/android.md.",
+            "Project Telly works without root. With root, a later version could close every app and reach deeper settings.":
+                "Project Telly marche sans root. Avec le root, une version future pourrait fermer toutes les apps et atteindre des réglages plus profonds.",
+            "Setup guide: github.com/TVTest5555/APL-Launcher, docs/android.md.": "Guide d'installation : github.com/TVTest5555/APL-Launcher, docs/android.md.",
             "Home app, remote buttons, the Control Center over apps.": "App d'accueil, touches de la télécommande, Centre de contrôle sur les apps.",
             "Android Settings": "Réglages Android",
             "Android's own settings: Wi-Fi, picture, sound, date, language, accounts, apps, reset.": "Les réglages d'Android : Wi-Fi, image, son, date, langue, comptes, apps, réinitialisation.",
@@ -96,8 +96,8 @@
                 "Une app restée plus de 10 minutes en arrière-plan est fermée par Android (par les touches de la télécommande, Accessibilité). L'app au premier plan, la musique en arrière-plan et le launcher ne sont jamais fermés.",
             "Asks Android to close the apps left in the background. They reopen normally, but start over from the beginning.":
                 "Demande à Android de fermer les apps laissées en arrière-plan. Elles se rouvrent normalement, mais repartent du début.",
-            "When an app closes, or the device starts, APL Launcher instead of the device's own home screen. Needs the remote buttons (Accessibility).":
-                "Quand une app se ferme, ou au démarrage de l'appareil, APL Launcher plutôt que l'écran d'accueil de l'appareil. Il faut les touches de la télécommande (Accessibilité).",
+            "When an app closes, or the device starts, Project Telly instead of the device's own home screen. Needs the remote buttons (Accessibility).":
+                "Quand une app se ferme, ou au démarrage de l'appareil, Project Telly plutôt que l'écran d'accueil de l'appareil. Il faut les touches de la télécommande (Accessibilité).",
             "About This Device": "À propos de cet appareil",
             "Android Version": "Version d'Android",
             "Updates come with a new APK, from the GitHub releases.": "Les mises à jour arrivent avec un nouvel APK, depuis les versions sur GitHub.",
@@ -107,20 +107,20 @@
             "Home Screen of the device": "Accueil de l'appareil",
             "Ethernet": "Ethernet",
             "Up Next": "À suivre",
-            "Continue Watching from the apps that fill Android TV's Play Next row (Nuvio, YouTube, Plex…), as cards over the Top Shelf. Android asks once to let APL Launcher read it.":
-                "Le « Continuer de regarder » des apps qui remplissent la rangée « À suivre » d'Android TV (Nuvio, YouTube, Plex…), en cartes au-dessus du Top Shelf. Android demande une fois d'autoriser APL Launcher à la lire.",
-            "Make APL Launcher Your Home Screen?": "Faire d'APL Launcher votre écran d'accueil ?",
-            "So that the remote's Home button and the device's start-up open APL Launcher. Android then asks which app to use: choose APL Launcher, then Set as default.":
-                "Pour que le bouton Accueil de la télécommande et le démarrage de l'appareil ouvrent APL Launcher. Android demande ensuite quelle app utiliser : choisissez APL Launcher, puis Définir par défaut.",
+            "Continue Watching from the apps that fill Android TV's Play Next row (Nuvio, YouTube, Plex…), as cards over the Top Shelf. Android asks once to let Project Telly read it.":
+                "Le « Continuer de regarder » des apps qui remplissent la rangée « À suivre » d'Android TV (Nuvio, YouTube, Plex…), en cartes au-dessus du Top Shelf. Android demande une fois d'autoriser Project Telly à la lire.",
+            "Make Project Telly Your Home Screen?": "Faire d'Project Telly votre écran d'accueil ?",
+            "So that the remote's Home button and the device's start-up open Project Telly. Android then asks which app to use: choose Project Telly, then Set as default.":
+                "Pour que le bouton Accueil de la télécommande et le démarrage de l'appareil ouvrent Project Telly. Android demande ensuite quelle app utiliser : choisissez Project Telly, puis Définir par défaut.",
             "Continue": "Continuer",
             "Later": "Plus tard",
             "One More Step: the Remote Buttons": "Encore une étape : les touches de la télécommande",
-            "This device keeps its own home screen on the Home button, even once APL Launcher is chosen. In Accessibility, choose APL Launcher Home Button and turn it on: Home then opens APL Launcher, and holding Home opens the Control Center over any app. Android then shows its usual warning about accessibility services: the module only sees the remote's buttons and which app is in front, and sends nothing anywhere.":
-                "Cet appareil garde son propre écran d'accueil sur le bouton Accueil, même quand APL Launcher est choisi. Dans Accessibilité, choisissez APL Launcher Home Button et activez-le : Accueil ouvre alors APL Launcher, et un appui long sur Accueil ouvre le Centre de contrôle par-dessus n'importe quelle app. Android affiche alors son avertissement habituel sur l'accessibilité : le module ne voit que les touches de la télécommande et l'app au premier plan, et n'envoie rien nulle part.",
+            "This device keeps its own home screen on the Home button, even once Project Telly is chosen. In Accessibility, choose Project Telly Remote and turn it on: Home then opens Project Telly, and holding Home opens the Control Center over any app. Android then shows its usual warning about accessibility services: the module only sees the remote's buttons and which app is in front, and sends nothing anywhere.":
+                "Cet appareil garde son propre écran d'accueil sur le bouton Accueil, même quand Project Telly est choisi. Dans Accessibilité, choisissez Project Telly Remote et activez-le : Accueil ouvre alors Project Telly, et un appui long sur Accueil ouvre le Centre de contrôle par-dessus n'importe quelle app. Android affiche alors son avertissement habituel sur l'accessibilité : le module ne voit que les touches de la télécommande et l'app au premier plan, et n'envoie rien nulle part.",
             "Open Accessibility": "Ouvrir Accessibilité",
-            "All set: Home now opens APL Launcher.": "C'est prêt : le bouton Accueil ouvre maintenant APL Launcher.",
-            "Not yet: in Accessibility, choose APL Launcher Home Button and turn it on. Settings › Android TV has it too.":
-                "Pas encore : dans Accessibilité, choisissez APL Launcher Home Button et activez-le. C'est aussi dans Réglages › Android TV.",
+            "All set: Home now opens Project Telly.": "C'est prêt : le bouton Accueil ouvre maintenant Project Telly.",
+            "Not yet: in Accessibility, choose Project Telly Remote and turn it on. Settings › Android TV has it too.":
+                "Pas encore : dans Accessibilité, choisissez Project Telly Remote et activez-le. C'est aussi dans Réglages › Android TV.",
             "Other": "Autre",
             "Type the key, then OK. The Google TV app on your phone can type it too. Back to cancel.":
                 "Tapez la clé, puis OK. L'app Google TV de votre téléphone peut aussi la taper. Retour pour annuler.",
@@ -133,8 +133,8 @@
                 "Optionnelle : vidéos tendance dans le Top Shelf de YouTube (YouTube Data API v3, console.cloud.google.com). OK pour la taper.",
             "Optional: HD backgrounds for movies and shows (fanart.tv › your profile › API Key). OK to type it.":
                 "Optionnelle : fonds HD des films et séries (fanart.tv › votre profil › API Key). OK pour la taper.",
-            "The keys are kept on this device. Type them here, or APL Launcher Setup sends them from the PC.":
-                "Les clés restent sur cet appareil. Tapez-les ici, ou APL Launcher Setup les envoie depuis le PC.",
+            "The keys are kept on this device. Type them here in Settings.":
+                "Les clés restent sur cet appareil. Saisissez-les ici dans les réglages.",
             "Remove the Typed Keys": "Effacer les clés tapées",
             "The Top Shelf goes back to the keys in the app, if it has any.": "Le Top Shelf revient aux clés de l'app, si elle en a.",
             "Keys removed.": "Clés effacées."
@@ -146,13 +146,13 @@
     if (PL) {
         var addPl = {
             "This needs root on Android.": "To wymaga roota na Androidzie.",
-            "Turn on APL Launcher Home Button first (Settings › Android TV).": "Najpierw włącz APL Launcher Home Button (Ustawienia › Android TV).",
-            "Install APL Launcher Home Button first (Settings › Android TV).": "Najpierw zainstaluj APL Launcher Home Button (Ustawienia › Android TV).",
-            "Get APL Launcher Home Button": "Pobierz APL Launcher Home Button",
+            "Turn on Project Telly Remote first (Settings › Android TV).": "Najpierw włącz Project Telly Remote (Ustawienia › Android TV).",
+            "Install Project Telly Remote first (Settings › Android TV).": "Najpierw zainstaluj Project Telly Remote (Ustawienia › Android TV).",
+            "Get Project Telly Remote": "Pobierz Project Telly Remote",
             "Not installed": "Nie zainstalowano",
-            "Home, holding Home and ⏯ over every app need a small second app, APL Launcher Home Button. It is separate because Google Play Protect blocks any app installed outside the Play Store that uses Accessibility.":
-                "Przycisk Home, przytrzymanie Home i ⏯ nad każdą aplikacją wymagają drugiej, małej aplikacji: APL Launcher Home Button. Jest osobna, bo Google Play Protect blokuje każdą aplikację spoza Sklepu Play, która korzysta z ułatwień dostępu.",
-            "To install it: in the Play Store, open your profile › Settings › Play Protect and turn off “Scan apps with Play Protect”. Open the address below in Downloader and install it, then turn Play Protect back on. From a PC: adb install. Then turn it on in Accessibility.":
+            "Home, holding Home and ⏯ over every app need a small second app, Project Telly Remote. It is separate because Google Play Protect blocks any app installed outside the Play Store that uses Accessibility.":
+                "Przycisk Home, przytrzymanie Home i ⏯ nad każdą aplikacją wymagają drugiej, małej aplikacji: Project Telly Remote. Jest osobna, bo Google Play Protect blokuje każdą aplikację spoza Sklepu Play, która korzysta z ułatwień dostępu.",
+            "Install the companion APK only from the official Project Telly release page. Keep Play Protect enabled, review Android’s warning, then turn on Project Telly Remote in Settings › Accessibility. The launcher itself works without this optional companion.":
                 "Aby ją zainstalować: w Sklepie Play otwórz swój profil › Ustawienia › Play Protect i wyłącz „Skanuj aplikacje za pomocą Play Protect”. Otwórz poniższy adres w aplikacji Downloader i zainstaluj ją, a potem ponownie włącz Play Protect. Z komputera: adb install. Na koniec włącz ją w ustawieniach Ułatwienia dostępu.",
             "Open Downloader": "Otwórz Downloader",
             "Downloader code": "Kod do aplikacji Downloader",
@@ -167,30 +167,30 @@
             "Android TV": "Android TV",
             "Google TV": "Google TV",
             "Home App": "Aplikacja ekranu głównego",
-            "Make APL Launcher the Home App": "Ustaw APL Launcher jako aplikację ekranu głównego",
+            "Make Project Telly the Home App": "Ustaw Project Telly jako aplikację ekranu głównego",
             "The app Home on the remote opens, and the one the device starts on.": "Aplikacja, którą otwiera przycisk Home na pilocie i od której urządzenie zaczyna po włączeniu.",
-            "Android asks which app to use: choose APL Launcher. If nothing opens, docs/android.md has the adb command.":
-                "Android zapyta, której aplikacji użyć: wybierz APL Launcher. Jeśli nic się nie otworzy, polecenie adb znajdziesz w docs/android.md.",
-            "APL Launcher is already the Home app.": "APL Launcher jest już aplikacją ekranu głównego.",
+            "Android asks which app to use: choose Project Telly. If nothing opens, docs/android.md has the adb command.":
+                "Android zapyta, której aplikacji użyć: wybierz Project Telly. Jeśli nic się nie otworzy, polecenie adb znajdziesz w docs/android.md.",
+            "Project Telly is already the Home app.": "Project Telly jest już aplikacją ekranu głównego.",
             "This device has no setting for it: see docs/android.md (adb).": "To urządzenie nie ma takiego ustawienia: zobacz docs/android.md (adb).",
             "Remote Buttons": "Przyciski pilota",
             "Turn On the Remote Buttons": "Włącz przyciski pilota",
-            "In Accessibility, choose APL Launcher Home Button and turn it on. Then Home opens APL Launcher, holding Home or ⏯ opens the Control Center over any app, and Sleep and the Sleep Timer work.":
-                "W ustawieniach Ułatwienia dostępu wybierz APL Launcher Home Button i włącz tę usługę. Wtedy Home otwiera APL Launcher, przytrzymanie Home lub ⏯ otwiera Centrum sterowania nad każdą aplikacją, a uśpienie i wyłącznik czasowy działają.",
+            "In Accessibility, choose Project Telly Remote and turn it on. Then Home opens Project Telly, holding Home or ⏯ opens the Control Center over any app, and Sleep and the Sleep Timer work.":
+                "W ustawieniach Ułatwienia dostępu wybierz Project Telly Remote i włącz tę usługę. Wtedy Home otwiera Project Telly, przytrzymanie Home lub ⏯ otwiera Centrum sterowania nad każdą aplikacją, a uśpienie i wyłącznik czasowy działają.",
             "Home Button": "Przycisk Home",
-            "Android TV and Google TV keep their own launcher on the Home button, even once APL Launcher is chosen. APL Launcher: the remote buttons (Accessibility) take it and open APL Launcher.":
-                "Android TV i Google TV zostawiają na przycisku Home własny launcher, nawet gdy wybrano APL Launcher. APL Launcher: przyciski pilota (Ułatwienia dostępu) przejmują go i otwierają APL Launcher.",
-            "Android chose APL Launcher, but this device keeps its own launcher on Home: turn on the remote buttons below.":
-                "Android wybrał APL Launcher, ale to urządzenie zostawia na przycisku Home własny launcher: włącz przyciski pilota poniżej.",
+            "Android TV and Google TV keep their own launcher on the Home button, even once Project Telly is chosen. Project Telly: the remote buttons (Accessibility) take it and open Project Telly.":
+                "Android TV i Google TV zostawiają na przycisku Home własny launcher, nawet gdy wybrano Project Telly. Project Telly: przyciski pilota (Ułatwienia dostępu) przejmują go i otwierają Project Telly.",
+            "Android chose Project Telly, but this device keeps its own launcher on Home: turn on the remote buttons below.":
+                "Android wybrał Project Telly, ale to urządzenie zostawia na przycisku Home własny launcher: włącz przyciski pilota poniżej.",
             "Over Apps": "Nad aplikacjami",
             "Accessibility": "Ułatwienia dostępu",
             "Allowed": "Dozwolone",
             "Root": "Root",
             "Not needed": "Niepotrzebny",
             "Found, not used": "Wykryty, nieużywany",
-            "APL Launcher works without root. With root, a later version could close every app and reach deeper settings.":
-                "APL Launcher działa bez roota. Z rootem przyszła wersja mogłaby zamykać wszystkie aplikacje i sięgać do głębszych ustawień.",
-            "Setup guide: github.com/Knikt/APL-Launcher, docs/android.md.": "Instrukcja instalacji: github.com/Knikt/APL-Launcher, docs/android.md.",
+            "Project Telly works without root. With root, a later version could close every app and reach deeper settings.":
+                "Project Telly działa bez roota. Z rootem przyszła wersja mogłaby zamykać wszystkie aplikacje i sięgać do głębszych ustawień.",
+            "Setup guide: github.com/TVTest5555/APL-Launcher, docs/android.md.": "Instrukcja instalacji: github.com/TVTest5555/APL-Launcher, docs/android.md.",
             "Home app, remote buttons, the Control Center over apps.": "Aplikacja ekranu głównego, przyciski pilota, Centrum sterowania nad aplikacjami.",
             "Android Settings": "Ustawienia Androida",
             "Android's own settings: Wi-Fi, picture, sound, date, language, accounts, apps, reset.": "Własne ustawienia Androida: Wi-Fi, obraz, dźwięk, data, język, konta, aplikacje, resetowanie.",
@@ -208,8 +208,8 @@
                 "Aplikację pozostawioną w tle dłużej niż 10 minut zamyka Android (za pomocą przycisków pilota, Ułatwienia dostępu). Aplikacja na pierwszym planie, muzyka grająca w tle i launcher nigdy nie są zamykane.",
             "Asks Android to close the apps left in the background. They reopen normally, but start over from the beginning.":
                 "Prosi Androida o zamknięcie aplikacji pozostawionych w tle. Otwierają się normalnie, ale zaczynają od początku.",
-            "When an app closes, or the device starts, APL Launcher instead of the device's own home screen. Needs the remote buttons (Accessibility).":
-                "Po zamknięciu aplikacji lub po uruchomieniu urządzenia pojawia się APL Launcher zamiast ekranu głównego urządzenia. Wymaga przycisków pilota (Ułatwienia dostępu).",
+            "When an app closes, or the device starts, Project Telly instead of the device's own home screen. Needs the remote buttons (Accessibility).":
+                "Po zamknięciu aplikacji lub po uruchomieniu urządzenia pojawia się Project Telly zamiast ekranu głównego urządzenia. Wymaga przycisków pilota (Ułatwienia dostępu).",
             "About This Device": "Informacje o tym urządzeniu",
             "Android Version": "Wersja Androida",
             "Updates come with a new APK, from the GitHub releases.": "Aktualizacje przychodzą jako nowy plik APK z wydań na GitHubie.",
@@ -219,20 +219,20 @@
             "Home Screen of the device": "Ekran główny urządzenia",
             "Ethernet": "Ethernet",
             "Up Next": "Następne",
-            "Continue Watching from the apps that fill Android TV's Play Next row (Nuvio, YouTube, Plex…), as cards over the Top Shelf. Android asks once to let APL Launcher read it.":
-                "„Kontynuuj oglądanie” z aplikacji, które wypełniają rząd Play Next na Androidzie TV (Nuvio, YouTube, Plex…), jako karty nad Top Shelf. Android jednorazowo poprosi o zgodę, aby APL Launcher mógł go odczytać.",
-            "Make APL Launcher Your Home Screen?": "Ustawić APL Launcher jako ekran główny?",
-            "So that the remote's Home button and the device's start-up open APL Launcher. Android then asks which app to use: choose APL Launcher, then Set as default.":
-                "Aby przycisk Home na pilocie i uruchomienie urządzenia otwierały APL Launcher. Android zapyta wtedy, której aplikacji użyć: wybierz APL Launcher i ustaw go jako domyślny.",
+            "Continue Watching from the apps that fill Android TV's Play Next row (Nuvio, YouTube, Plex…), as cards over the Top Shelf. Android asks once to let Project Telly read it.":
+                "„Kontynuuj oglądanie” z aplikacji, które wypełniają rząd Play Next na Androidzie TV (Nuvio, YouTube, Plex…), jako karty nad Top Shelf. Android jednorazowo poprosi o zgodę, aby Project Telly mógł go odczytać.",
+            "Make Project Telly Your Home Screen?": "Ustawić Project Telly jako ekran główny?",
+            "So that the remote's Home button and the device's start-up open Project Telly. Android then asks which app to use: choose Project Telly, then Set as default.":
+                "Aby przycisk Home na pilocie i uruchomienie urządzenia otwierały Project Telly. Android zapyta wtedy, której aplikacji użyć: wybierz Project Telly i ustaw go jako domyślny.",
             "Continue": "Dalej",
             "Later": "Później",
             "One More Step: the Remote Buttons": "Jeszcze jeden krok: przyciski pilota",
-            "This device keeps its own home screen on the Home button, even once APL Launcher is chosen. In Accessibility, choose APL Launcher Home Button and turn it on: Home then opens APL Launcher, and holding Home opens the Control Center over any app. Android then shows its usual warning about accessibility services: the module only sees the remote's buttons and which app is in front, and sends nothing anywhere.":
-                "To urządzenie zostawia na przycisku Home własny ekran główny, nawet gdy wybrano APL Launcher. W ustawieniach Ułatwienia dostępu wybierz APL Launcher Home Button i włącz tę usługę: Home będzie wtedy otwierać APL Launcher, a przytrzymanie Home – Centrum sterowania nad każdą aplikacją. Android pokaże swoje zwykłe ostrzeżenie o usługach ułatwień dostępu: moduł widzi tylko przyciski pilota i to, która aplikacja jest na pierwszym planie, i niczego nigdzie nie wysyła.",
+            "This device keeps its own home screen on the Home button, even once Project Telly is chosen. In Accessibility, choose Project Telly Remote and turn it on: Home then opens Project Telly, and holding Home opens the Control Center over any app. Android then shows its usual warning about accessibility services: the module only sees the remote's buttons and which app is in front, and sends nothing anywhere.":
+                "To urządzenie zostawia na przycisku Home własny ekran główny, nawet gdy wybrano Project Telly. W ustawieniach Ułatwienia dostępu wybierz Project Telly Remote i włącz tę usługę: Home będzie wtedy otwierać Project Telly, a przytrzymanie Home – Centrum sterowania nad każdą aplikacją. Android pokaże swoje zwykłe ostrzeżenie o usługach ułatwień dostępu: moduł widzi tylko przyciski pilota i to, która aplikacja jest na pierwszym planie, i niczego nigdzie nie wysyła.",
             "Open Accessibility": "Otwórz Ułatwienia dostępu",
-            "All set: Home now opens APL Launcher.": "Gotowe: przycisk Home otwiera teraz APL Launcher.",
-            "Not yet: in Accessibility, choose APL Launcher Home Button and turn it on. Settings › Android TV has it too.":
-                "Jeszcze nie: w ustawieniach Ułatwienia dostępu wybierz APL Launcher Home Button i włącz tę usługę. Ta opcja jest też w menu Ustawienia › Android TV.",
+            "All set: Home now opens Project Telly.": "Gotowe: przycisk Home otwiera teraz Project Telly.",
+            "Not yet: in Accessibility, choose Project Telly Remote and turn it on. Settings › Android TV has it too.":
+                "Jeszcze nie: w ustawieniach Ułatwienia dostępu wybierz Project Telly Remote i włącz tę usługę. Ta opcja jest też w menu Ustawienia › Android TV.",
             "Other": "Inne",
             "Type the key, then OK. The Google TV app on your phone can type it too. Back to cancel.":
                 "Wpisz klucz, a potem naciśnij OK. Możesz go też wpisać w aplikacji Google TV na telefonie. Wstecz: anuluj.",
@@ -245,8 +245,8 @@
                 "Opcjonalny: popularne wideo w Top Shelf YouTube (YouTube Data API v3, console.cloud.google.com). OK, aby go wpisać.",
             "Optional: HD backgrounds for movies and shows (fanart.tv › your profile › API Key). OK to type it.":
                 "Opcjonalny: tła HD do filmów i seriali (fanart.tv › Twój profil › API Key). OK, aby go wpisać.",
-            "The keys are kept on this device. Type them here, or APL Launcher Setup sends them from the PC.":
-                "Klucze są przechowywane na tym urządzeniu. Wpisz je tutaj albo wyślij z komputera przez APL Launcher Setup.",
+            "The keys are kept on this device. Type them here in Settings.":
+                "Klucze są przechowywane na tym urządzeniu. Wpisz je tutaj albo wyślij z komputera przez Project Telly Setup.",
             "Remove the Typed Keys": "Usuń wpisane klucze",
             "The Top Shelf goes back to the keys in the app, if it has any.": "Top Shelf wróci do kluczy wbudowanych w aplikację, jeśli takie są.",
             "Keys removed.": "Usunięto klucze."
@@ -258,12 +258,12 @@
     if (TR) {
         var addTr = {
             "This needs root on Android.": "Bunun için Android'de root gerekir.",
-            "Turn on APL Launcher Home Button first (Settings › Android TV).": "Önce APL Launcher Home Button'ı aç (Ayarlar › Android TV).",
-            "Install APL Launcher Home Button first (Settings › Android TV).": "Önce APL Launcher Home Button'ı yükle (Ayarlar › Android TV).",
-            "Get APL Launcher Home Button": "APL Launcher Home Button'ı edin",
+            "Turn on Project Telly Remote first (Settings › Android TV).": "Önce Project Telly Remote'ı aç (Ayarlar › Android TV).",
+            "Install Project Telly Remote first (Settings › Android TV).": "Önce Project Telly Remote'ı yükle (Ayarlar › Android TV).",
+            "Get Project Telly Remote": "Project Telly Remote'ı edin",
             "Not installed": "Yüklü değil",
-            "Home, holding Home and ⏯ over every app need a small second app, APL Launcher Home Button. It is separate because Google Play Protect blocks any app installed outside the Play Store that uses Accessibility.": "Home, Home'a basılı tutma ve tüm uygulamaların üzerinde ⏯ için küçük ikinci bir uygulama gerekir: APL Launcher Home Button. Ayrı bir uygulamadır, çünkü Google Play Protect, Play Store dışından yüklenen ve Erişilebilirlik kullanan her uygulamayı engeller.",
-            "To install it: in the Play Store, open your profile › Settings › Play Protect and turn off “Scan apps with Play Protect”. Open the address below in Downloader and install it, then turn Play Protect back on. From a PC: adb install. Then turn it on in Accessibility.": "Yüklemek için: Play Store'da profilin › Ayarlar › Play Protect'i aç ve “Uygulamaları Play Protect ile tara” seçeneğini kapat. Aşağıdaki adresi Downloader'da açıp yükle, sonra Play Protect'i yeniden aç. Bilgisayardan: adb install. Ardından Erişilebilirlik'te aç.",
+            "Home, holding Home and ⏯ over every app need a small second app, Project Telly Remote. It is separate because Google Play Protect blocks any app installed outside the Play Store that uses Accessibility.": "Home, Home'a basılı tutma ve tüm uygulamaların üzerinde ⏯ için küçük ikinci bir uygulama gerekir: Project Telly Remote. Ayrı bir uygulamadır, çünkü Google Play Protect, Play Store dışından yüklenen ve Erişilebilirlik kullanan her uygulamayı engeller.",
+            "Install the companion APK only from the official Project Telly release page. Keep Play Protect enabled, review Android’s warning, then turn on Project Telly Remote in Settings › Accessibility. The launcher itself works without this optional companion.": "Yüklemek için: Play Store'da profilin › Ayarlar › Play Protect'i aç ve “Uygulamaları Play Protect ile tara” seçeneğini kapat. Aşağıdaki adresi Downloader'da açıp yükle, sonra Play Protect'i yeniden aç. Bilgisayardan: adb install. Ardından Erişilebilirlik'te aç.",
             "Open Downloader": "Downloader'ı aç",
             "Downloader code": "Downloader kodu",
             "The Control Center over the app in front needs “draw over other apps”. Without it, holding Home opens the launcher with its Control Center. From a PC: adb shell appops set com.knikt.apllauncher SYSTEM_ALERT_WINDOW allow": "Öndeki uygulamanın üzerinde Kontrol Merkezi için “diğer uygulamaların üzerinde göster” izni gerekir. Bu izin olmadan Home'a basılı tutmak launcher'ı Kontrol Merkezi ile açar. Bilgisayardan: adb shell appops set com.knikt.apllauncher SYSTEM_ALERT_WINDOW allow",
@@ -276,25 +276,25 @@
             "Android TV": "Android TV",
             "Google TV": "Google TV",
             "Home App": "Ana ekran uygulaması",
-            "Make APL Launcher the Home App": "APL Launcher'ı ana ekran uygulaması yap",
+            "Make Project Telly the Home App": "Project Telly'ı ana ekran uygulaması yap",
             "The app Home on the remote opens, and the one the device starts on.": "Kumandadaki Home tuşunun açtığı ve aygıtın açılışta başladığı uygulama.",
-            "Android asks which app to use: choose APL Launcher. If nothing opens, docs/android.md has the adb command.": "Android hangi uygulamanın kullanılacağını sorar: APL Launcher'ı seç. Hiçbir şey açılmazsa adb komutu docs/android.md içinde.",
-            "APL Launcher is already the Home app.": "APL Launcher zaten ana ekran uygulaması.",
+            "Android asks which app to use: choose Project Telly. If nothing opens, docs/android.md has the adb command.": "Android hangi uygulamanın kullanılacağını sorar: Project Telly'ı seç. Hiçbir şey açılmazsa adb komutu docs/android.md içinde.",
+            "Project Telly is already the Home app.": "Project Telly zaten ana ekran uygulaması.",
             "This device has no setting for it: see docs/android.md (adb).": "Bu aygıtta bunun için bir ayar yok: docs/android.md'ye bak (adb).",
             "Remote Buttons": "Kumanda tuşları",
             "Turn On the Remote Buttons": "Kumanda tuşlarını aç",
-            "In Accessibility, choose APL Launcher Home Button and turn it on. Then Home opens APL Launcher, holding Home or ⏯ opens the Control Center over any app, and Sleep and the Sleep Timer work.": "Erişilebilirlik'te APL Launcher Home Button'ı seç ve aç. Böylece Home APL Launcher'ı açar, Home'a ya da ⏯ tuşuna basılı tutmak her uygulamanın üzerinde Kontrol Merkezi'ni açar, Uyku ve Uyku zamanlayıcısı da çalışır.",
+            "In Accessibility, choose Project Telly Remote and turn it on. Then Home opens Project Telly, holding Home or ⏯ opens the Control Center over any app, and Sleep and the Sleep Timer work.": "Erişilebilirlik'te Project Telly Remote'ı seç ve aç. Böylece Home Project Telly'ı açar, Home'a ya da ⏯ tuşuna basılı tutmak her uygulamanın üzerinde Kontrol Merkezi'ni açar, Uyku ve Uyku zamanlayıcısı da çalışır.",
             "Home Button": "Home tuşu",
-            "Android TV and Google TV keep their own launcher on the Home button, even once APL Launcher is chosen. APL Launcher: the remote buttons (Accessibility) take it and open APL Launcher.": "Android TV ve Google TV, APL Launcher seçilse bile Home tuşunda kendi launcher'larını tutar. APL Launcher: kumanda tuşları (Erişilebilirlik) bu tuşu alır ve APL Launcher'ı açar.",
-            "Android chose APL Launcher, but this device keeps its own launcher on Home: turn on the remote buttons below.": "Android APL Launcher'ı seçti, ama bu aygıt Home tuşunda kendi launcher'ını tutuyor: hemen aşağıdaki kumanda tuşlarını aç.",
+            "Android TV and Google TV keep their own launcher on the Home button, even once Project Telly is chosen. Project Telly: the remote buttons (Accessibility) take it and open Project Telly.": "Android TV ve Google TV, Project Telly seçilse bile Home tuşunda kendi launcher'larını tutar. Project Telly: kumanda tuşları (Erişilebilirlik) bu tuşu alır ve Project Telly'ı açar.",
+            "Android chose Project Telly, but this device keeps its own launcher on Home: turn on the remote buttons below.": "Android Project Telly'ı seçti, ama bu aygıt Home tuşunda kendi launcher'ını tutuyor: hemen aşağıdaki kumanda tuşlarını aç.",
             "Over Apps": "Uygulamaların üzerinde",
             "Accessibility": "Erişilebilirlik",
             "Allowed": "İzin verildi",
             "Root": "Root",
             "Not needed": "Gerekli değil",
             "Found, not used": "Bulundu, kullanılmıyor",
-            "APL Launcher works without root. With root, a later version could close every app and reach deeper settings.": "APL Launcher root olmadan çalışır. Root ile ileriki bir sürüm tüm uygulamaları kapatabilir ve daha derin ayarlara ulaşabilir.",
-            "Setup guide: github.com/Knikt/APL-Launcher, docs/android.md.": "Kurulum rehberi: github.com/Knikt/APL-Launcher, docs/android.md.",
+            "Project Telly works without root. With root, a later version could close every app and reach deeper settings.": "Project Telly root olmadan çalışır. Root ile ileriki bir sürüm tüm uygulamaları kapatabilir ve daha derin ayarlara ulaşabilir.",
+            "Setup guide: github.com/TVTest5555/APL-Launcher, docs/android.md.": "Kurulum rehberi: github.com/TVTest5555/APL-Launcher, docs/android.md.",
             "Home app, remote buttons, the Control Center over apps.": "Ana ekran uygulaması, kumanda tuşları, uygulamaların üzerinde Kontrol Merkezi.",
             "Android Settings": "Android ayarları",
             "Android's own settings: Wi-Fi, picture, sound, date, language, accounts, apps, reset.": "Android'in kendi ayarları: Wi-Fi, resim, ses, tarih, dil, hesaplar, uygulamalar, sıfırlama.",
@@ -310,7 +310,7 @@
             "Storage, permissions, force stop, in Android.": "Depolama, izinler, durmaya zorla, Android'de.",
             "An app left in the background for more than 10 minutes is closed by Android (through the remote buttons, Accessibility). The app in front, music playing in the background and the launcher are never closed.": "Arka planda 10 dakikadan uzun kalan bir uygulamayı Android kapatır (kumanda tuşları, Erişilebilirlik aracılığıyla). Öndeki uygulama, arka planda çalan müzik ve launcher asla kapatılmaz.",
             "Asks Android to close the apps left in the background. They reopen normally, but start over from the beginning.": "Android'den arka planda kalan uygulamaları kapatmasını ister. Normal şekilde yeniden açılırlar, ama baştan başlarlar.",
-            "When an app closes, or the device starts, APL Launcher instead of the device's own home screen. Needs the remote buttons (Accessibility).": "Bir uygulama kapandığında ya da aygıt açıldığında, aygıtın kendi ana ekranı yerine APL Launcher. Kumanda tuşları gerekir (Erişilebilirlik).",
+            "When an app closes, or the device starts, Project Telly instead of the device's own home screen. Needs the remote buttons (Accessibility).": "Bir uygulama kapandığında ya da aygıt açıldığında, aygıtın kendi ana ekranı yerine Project Telly. Kumanda tuşları gerekir (Erişilebilirlik).",
             "About This Device": "Bu aygıt hakkında",
             "Android Version": "Android sürümü",
             "Updates come with a new APK, from the GitHub releases.": "Güncellemeler GitHub sürümlerinden yeni bir APK ile gelir.",
@@ -320,16 +320,16 @@
             "Home Screen of the device": "Aygıtın ana ekranı",
             "Ethernet": "Ethernet",
             "Up Next": "Sıradaki",
-            "Continue Watching from the apps that fill Android TV's Play Next row (Nuvio, YouTube, Plex…), as cards over the Top Shelf. Android asks once to let APL Launcher read it.": "Android TV'nin Sıradaki satırını dolduran uygulamalardan (Nuvio, YouTube, Plex…) İzlemeye devam et, Üst Raf'ın üzerinde kartlar olarak. Android, APL Launcher'ın bunu okumasına izin vermek için bir kez sorar.",
-            "Make APL Launcher Your Home Screen?": "APL Launcher ana ekranın olsun mu?",
-            "So that the remote's Home button and the device's start-up open APL Launcher. Android then asks which app to use: choose APL Launcher, then Set as default.": "Böylece kumandanın Home tuşu ve aygıtın açılışı APL Launcher'ı açar. Android ardından hangi uygulamanın kullanılacağını sorar: APL Launcher'ı seç, sonra Varsayılan olarak ayarla.",
+            "Continue Watching from the apps that fill Android TV's Play Next row (Nuvio, YouTube, Plex…), as cards over the Top Shelf. Android asks once to let Project Telly read it.": "Android TV'nin Sıradaki satırını dolduran uygulamalardan (Nuvio, YouTube, Plex…) İzlemeye devam et, Üst Raf'ın üzerinde kartlar olarak. Android, Project Telly'ın bunu okumasına izin vermek için bir kez sorar.",
+            "Make Project Telly Your Home Screen?": "Project Telly ana ekranın olsun mu?",
+            "So that the remote's Home button and the device's start-up open Project Telly. Android then asks which app to use: choose Project Telly, then Set as default.": "Böylece kumandanın Home tuşu ve aygıtın açılışı Project Telly'ı açar. Android ardından hangi uygulamanın kullanılacağını sorar: Project Telly'ı seç, sonra Varsayılan olarak ayarla.",
             "Continue": "Devam",
             "Later": "Daha sonra",
             "One More Step: the Remote Buttons": "Bir adım daha: kumanda tuşları",
-            "This device keeps its own home screen on the Home button, even once APL Launcher is chosen. In Accessibility, choose APL Launcher Home Button and turn it on: Home then opens APL Launcher, and holding Home opens the Control Center over any app. Android then shows its usual warning about accessibility services: the module only sees the remote's buttons and which app is in front, and sends nothing anywhere.": "Bu aygıt, APL Launcher seçilse bile Home tuşunda kendi ana ekranını tutar. Erişilebilirlik'te APL Launcher Home Button'ı seç ve aç: böylece Home APL Launcher'ı açar, Home'a basılı tutmak da her uygulamanın üzerinde Kontrol Merkezi'ni açar. Android ardından erişilebilirlik hizmetleri hakkındaki olağan uyarısını gösterir: modül yalnızca kumandanın tuşlarını ve öndeki uygulamayı görür, hiçbir yere bir şey göndermez.",
+            "This device keeps its own home screen on the Home button, even once Project Telly is chosen. In Accessibility, choose Project Telly Remote and turn it on: Home then opens Project Telly, and holding Home opens the Control Center over any app. Android then shows its usual warning about accessibility services: the module only sees the remote's buttons and which app is in front, and sends nothing anywhere.": "Bu aygıt, Project Telly seçilse bile Home tuşunda kendi ana ekranını tutar. Erişilebilirlik'te Project Telly Remote'ı seç ve aç: böylece Home Project Telly'ı açar, Home'a basılı tutmak da her uygulamanın üzerinde Kontrol Merkezi'ni açar. Android ardından erişilebilirlik hizmetleri hakkındaki olağan uyarısını gösterir: modül yalnızca kumandanın tuşlarını ve öndeki uygulamayı görür, hiçbir yere bir şey göndermez.",
             "Open Accessibility": "Erişilebilirlik'i aç",
-            "All set: Home now opens APL Launcher.": "Hazır: Home artık APL Launcher'ı açıyor.",
-            "Not yet: in Accessibility, choose APL Launcher Home Button and turn it on. Settings › Android TV has it too.": "Henüz değil: Erişilebilirlik'te APL Launcher Home Button'ı seç ve aç. Ayarlar › Android TV'de de var.",
+            "All set: Home now opens Project Telly.": "Hazır: Home artık Project Telly'ı açıyor.",
+            "Not yet: in Accessibility, choose Project Telly Remote and turn it on. Settings › Android TV has it too.": "Henüz değil: Erişilebilirlik'te Project Telly Remote'ı seç ve aç. Ayarlar › Android TV'de de var.",
             "Other": "Diğer",
             "Type the key, then OK. The Google TV app on your phone can type it too. Back to cancel.": "Anahtarı yaz, sonra OK. Telefonundaki Google TV uygulaması da yazabilir. İptal için Geri.",
             "Saved: the Top Shelf uses it now.": "Kaydedildi: Üst Raf artık bunu kullanıyor.",
@@ -338,7 +338,7 @@
             "Films and series in What's Popular. Free on themoviedb.org › Settings › API (API Key). OK to type it.": "Popüler olanlar'da filmler ve diziler. themoviedb.org › Settings › API (API Key) üzerinden ücretsiz. Yazmak için OK.",
             "Optional: trending videos in YouTube's Top Shelf (YouTube Data API v3, console.cloud.google.com). OK to type it.": "İsteğe bağlı: YouTube'un Üst Raf'ında trend videolar (YouTube Data API v3, console.cloud.google.com). Yazmak için OK.",
             "Optional: HD backgrounds for movies and shows (fanart.tv › your profile › API Key). OK to type it.": "İsteğe bağlı: filmler ve diziler için HD arka planlar (fanart.tv › profilin › API Key). Yazmak için OK.",
-            "The keys are kept on this device. Type them here, or APL Launcher Setup sends them from the PC.": "Anahtarlar bu aygıtta saklanır. Buraya yaz ya da APL Launcher Setup bunları bilgisayardan göndersin.",
+            "The keys are kept on this device. Type them here in Settings.": "Anahtarlar bu aygıtta saklanır. Buraya yaz ya da Project Telly Setup bunları bilgisayardan göndersin.",
             "Remove the Typed Keys": "Yazılan anahtarları sil",
             "The Top Shelf goes back to the keys in the app, if it has any.": "Üst Raf, varsa uygulamadaki anahtarlara geri döner.",
             "Keys removed.": "Anahtarlar silindi."
@@ -349,7 +349,7 @@
 
     /* ---------- the API keys ----------
        The published .apk has none (tools/make-android.py --release): they are kept by the app (Bridge.keys,
-       KeysReceiver.kt), typed in Settings › Appearance › Top Shelf › Online Services or sent by APL Launcher
+       KeysReceiver.kt), typed in Settings › Appearance › Top Shelf › Online Services or sent by Project Telly
        Setup over adb. liveshelf.js and autoart.js read the same window.APL_KEYS object: filled in place here,
        before launcher.js starts. A key kept by the app wins over the one in the package (your own build). */
     var KEY_NAMES = ["tmdb", "youtube", "fanart"];
@@ -375,14 +375,14 @@
     }
     applyKeys();
 
-    /* The remote's buttons over apps, sleep and the Sleep Timer: APL Launcher Home Button (android/homebutton) */
+    /* The remote's buttons over apps, sleep and the Sleep Timer: Project Telly Remote (android/homebutton) */
     function needsService() {
-        return fresh().module ? T("Turn on APL Launcher Home Button first (Settings › Android TV).") : T("Install APL Launcher Home Button first (Settings › Android TV).");
+        return fresh().module ? T("Turn on Project Telly Remote first (Settings › Android TV).") : T("Install Project Telly Remote first (Settings › Android TV).");
     }
-    var MODULE_URL = "https://github.com/Knikt/APL-Launcher/releases/latest/download/apl-launcher-home-button.apk";
+    var MODULE_URL = "https://github.com/TVTest5555/APL-Launcher/releases/latest/download/project-telly-remote.apk";
     var MODULE_CODE = "";            // a Downloader short code (go.aftvnews.com) for MODULE_URL, once there is one
     var DOWNLOADER = "com.esaba.downloader";
-    /* How to get APL Launcher Home Button: why it is separate, Play Protect, where it is */
+    /* How to get Project Telly Remote: why it is separate, Play Protect, where it is */
     function moduleHelp(then) {
         var box = document.createElement("div");
         box.className = "aplalert__qr";
@@ -393,7 +393,7 @@
         var buttons = [];
         if (B.installed(DOWNLOADER)) buttons.push({ label: T("Open Downloader"), run: function () { setupWait = "module"; B.launch(DOWNLOADER); } });
         buttons.push({ label: buttons.length ? T("Later") : T("OK"), run: then });
-        APL.alert({ title: "APL Launcher Home Button", message: T("Home, holding Home and ⏯ over every app need a small second app, APL Launcher Home Button. It is separate because Google Play Protect blocks any app installed outside the Play Store that uses Accessibility.") + " " + T("To install it: in the Play Store, open your profile › Settings › Play Protect and turn off “Scan apps with Play Protect”. Open the address below in Downloader and install it, then turn Play Protect back on. From a PC: adb install. Then turn it on in Accessibility."),
+        APL.alert({ title: "Project Telly Remote", message: T("Home, holding Home and ⏯ over every app need a small second app, Project Telly Remote. It is separate because Google Play Protect blocks any app installed outside the Play Store that uses Accessibility.") + " " + T("Install the companion APK only from the official Project Telly release page. Keep Play Protect enabled, review Android’s warning, then turn on Project Telly Remote in Settings › Accessibility. The launcher itself works without this optional companion."),
                     node: box, buttons: buttons });
     }
     function fail(msg) { return Promise.reject(new Error(msg)); }
@@ -442,7 +442,11 @@
         sys.setDefault("autoUpdate", false);      // updates come with the APK: boot.js runs the installed version
         sys.setDefault("bootCleanup", false);     // Samsung's own apps at power-on
         sys.setDefault("alexaBridge", false);
-        sys.setDefault("catchHome", true);       // Home opens APL Launcher (KeyService.kt), where the device keeps its own launcher
+        sys.setDefault("catchHome", true);       // Home opens Project Telly (KeyService.kt), where the device keeps its own launcher
+        sys.setDefault("hubShelf", false);       // no app-provided promotional shelves by default
+        sys.setDefault("liveShelf", false);      // no trending/promoted content by default
+        sys.setDefault("continueStyle", "off");  // no Continue Watching cards by default
+        sys.setDefault("supportReminder", false); // no upstream creator reminder in the branded build
     }
 
     sys.audio = {
@@ -624,7 +628,7 @@
     };
     APL.launchApp = function (id) { return B.launch(String(id)) ? Promise.resolve() : fail(T("Can't launch the app")); };
 
-    /* APL TV's Top Shelf (widgets.js): APL TV keeps it for APL Launcher only (its ShelfProvider) */
+    /* APL TV's Top Shelf (widgets.js): APL TV keeps it for Project Telly only (its ShelfProvider) */
     if (B.appShelf) sys.appShelf = function () {
         var shelf = json(B.appShelf(), null);
         return shelf ? Promise.resolve(shelf) : fail("nothing to read");
@@ -695,8 +699,8 @@
         /* A new version is out (updater.js, once per version): how to get it on Android */
         updateNotice: function (v) {
             APL.alert({
-                title: T("APL Launcher {v} is available", { v: v.version }),
-                message: T("To install it: in the Downloader app, type the code 9890834, then install. Or run APL Launcher Setup again on your PC. Your settings are kept."),
+                title: T("Project Telly {v} is available", { v: v.version }),
+                message: T("Open github.com/TVTest5555/APL-Launcher/releases and install the latest Android APK. Your settings are kept."),
                 buttons: [{ label: T("OK") }]
             });
         },
@@ -774,31 +778,31 @@
         var rows = [
             infoRow(T("Home App"), function () {
                 var i = fresh();
-                return i.defaultHome || (i.accessibility && sys.pref("catchHome")) ? "APL Launcher" : (homeName || "—");
+                return i.defaultHome || (i.accessibility && sys.pref("catchHome")) ? "Project Telly" : (homeName || "—");
             },
                 T("The app Home on the remote opens, and the one the device starts on.")),
-            action(T("Make APL Launcher the Home App"), function () {
+            action(T("Make Project Telly the Home App"), function () {
                 var r = B.requestHome();
-                if (r === "held") toast(T("APL Launcher is already the Home app."), true);
-                else if (r === "kept") toast(T("Android chose APL Launcher, but this device keeps its own launcher on Home: turn on the remote buttons below."));
-                else if (r === "role" || r === "settings") toast(T("Android asks which app to use: choose APL Launcher. If nothing opens, docs/android.md has the adb command."), true);
+                if (r === "held") toast(T("Project Telly is already the Home app."), true);
+                else if (r === "kept") toast(T("Android chose Project Telly, but this device keeps its own launcher on Home: turn on the remote buttons below."));
+                else if (r === "role" || r === "settings") toast(T("Android asks which app to use: choose Project Telly. If nothing opens, docs/android.md has the adb command."), true);
                 else toast(T("This device has no setting for it: see docs/android.md (adb)."));
-            }, T("Android asks which app to use: choose APL Launcher. If nothing opens, docs/android.md has the adb command."), "grid"),
-            infoRow("APL Launcher Home Button", function () { var i = fresh(); return !i.module ? T("Not installed") : onOff(i.accessibility); },
-                T("Home, holding Home and ⏯ over every app need a small second app, APL Launcher Home Button. It is separate because Google Play Protect blocks any app installed outside the Play Store that uses Accessibility.")),
-            info.module ? opener(T("Turn On the Remote Buttons"), "accessibility", T("In Accessibility, choose APL Launcher Home Button and turn it on. Then Home opens APL Launcher, holding Home or ⏯ opens the Control Center over any app, and Sleep and the Sleep Timer work."), "remote")
-                        : action(T("Get APL Launcher Home Button"), function () { moduleHelp(); }, T("To install it: in the Play Store, open your profile › Settings › Play Protect and turn off “Scan apps with Play Protect”. Open the address below in Downloader and install it, then turn Play Protect back on. From a PC: adb install. Then turn it on in Accessibility."), "remote")
+            }, T("Android asks which app to use: choose Project Telly. If nothing opens, docs/android.md has the adb command."), "grid"),
+            infoRow("Project Telly Remote", function () { var i = fresh(); return !i.module ? T("Not installed") : onOff(i.accessibility); },
+                T("Home, holding Home and ⏯ over every app need a small second app, Project Telly Remote. It is separate because Google Play Protect blocks any app installed outside the Play Store that uses Accessibility.")),
+            info.module ? opener(T("Turn On the Remote Buttons"), "accessibility", T("In Accessibility, choose Project Telly Remote and turn it on. Then Home opens Project Telly, holding Home or ⏯ opens the Control Center over any app, and Sleep and the Sleep Timer work."), "remote")
+                        : action(T("Get Project Telly Remote"), function () { moduleHelp(); }, T("Install the companion APK only from the official Project Telly release page. Keep Play Protect enabled, review Android’s warning, then turn on Project Telly Remote in Settings › Accessibility. The launcher itself works without this optional companion."), "remote")
         ];
         if (!info.defaultHome) {
-            rows.push({ type: "choice", label: T("Home Button"), key: "catchHome", options: [[true, "APL Launcher"], [false, homeName]],
-                        desc: T("Android TV and Google TV keep their own launcher on the Home button, even once APL Launcher is chosen. APL Launcher: the remote buttons (Accessibility) take it and open APL Launcher.") });
+            rows.push({ type: "choice", label: T("Home Button"), key: "catchHome", options: [[true, "Project Telly"], [false, homeName]],
+                        desc: T("Android TV and Google TV keep their own launcher on the Home button, even once Project Telly is chosen. Project Telly: the remote buttons (Accessibility) take it and open Project Telly.") });
         }
         var over = T("The Control Center over the app in front needs “draw over other apps”. Without it, holding Home opens the launcher with its Control Center. From a PC: adb shell appops set com.knikt.apllauncher SYSTEM_ALERT_WINDOW allow");
         rows.push(infoRow(T("Over Apps"), function () { return fresh().overlayAllowed ? T("Allowed") : T("Not allowed"); }, over));
         if (!info.overlayAllowed) rows.push(opener(T("Allow Over Other Apps"), "overlay", over, "sliders"));
         rows.push(infoRow(T("Root"), function () { return fresh().root ? T("Found, not used") : T("Not needed"); },
-            T("APL Launcher works without root. With root, a later version could close every app and reach deeper settings.")));
-        rows.push(infoRow("docs/android.md", function () { return ""; }, T("Setup guide: github.com/Knikt/APL-Launcher, docs/android.md.")));
+            T("Project Telly works without root. With root, a later version could close every app and reach deeper settings.")));
+        rows.push(infoRow("docs/android.md", function () { return ""; }, T("Setup guide: github.com/TVTest5555/APL-Launcher, docs/android.md.")));
         return menu(info.googleTv ? "Google TV" : "Android TV", "display", rows, T("Home app, remote buttons, the Control Center over apps."));
     }
 
@@ -873,11 +877,11 @@
         var appearance = find(top, "Appearance"), shelf = appearance && find(appearance.children, "Top Shelf");
         // Samsung's home rows there; on Android 11+, the apps' Watch Next row instead (WatchNext.kt)
         var watching = shelf && find(shelf.children, "What You're Watching");
-        if (watching && B.watchNextSupported && B.watchNextSupported()) watching.desc = T("Continue Watching from the apps that fill Android TV's Play Next row (Nuvio, YouTube, Plex…), as cards over the Top Shelf. Android asks once to let APL Launcher read it.");
+        if (watching && B.watchNextSupported && B.watchNextSupported()) watching.desc = T("Continue Watching from the apps that fill Android TV's Play Next row (Nuvio, YouTube, Plex…), as cards over the Top Shelf. Android asks once to let Project Telly read it.");
         else if (shelf) shelf.children = without(shelf.children, ["What You're Watching"]);
         var online = shelf && find(shelf.children, "Online Services");
         if (online && B.setKey) {
-            online.desc = T("The keys are kept on this device. Type them here, or APL Launcher Setup sends them from the PC.");
+            online.desc = T("The keys are kept on this device. Type them here in Settings.");
             online.children = keyRows();
         }
 
@@ -890,16 +894,16 @@
             }
             var ret = find(home.children, "Return to the Launcher");
             if (ret) {
-                if (!info.defaultHome) ret.desc = T("When an app closes, or the device starts, APL Launcher instead of the device's own home screen. Needs the remote buttons (Accessibility).");
-                else home.children = without(home.children, ["Return to the Launcher"]);     // Android does it: Home really is APL Launcher
+                if (!info.defaultHome) ret.desc = T("When an app closes, or the device starts, Project Telly instead of the device's own home screen. Needs the remote buttons (Accessibility).");
+                else home.children = without(home.children, ["Return to the Launcher"]);     // Android does it: Home really is Project Telly
             }
         }
 
         var remote = find(top, "Remote and Devices");
         if (remote) {
             remote.children = without(remote.children, ["Alexa (Echo Dot)", "Bluetooth"]);
-            remote.children.push(info.module ? opener(T("Turn On the Remote Buttons"), "accessibility", T("In Accessibility, choose APL Launcher Home Button and turn it on. Then Home opens APL Launcher, holding Home or ⏯ opens the Control Center over any app, and Sleep and the Sleep Timer work."), "remote")
-                                             : action(T("Get APL Launcher Home Button"), function () { moduleHelp(); }, T("Home, holding Home and ⏯ over every app need a small second app, APL Launcher Home Button. It is separate because Google Play Protect blocks any app installed outside the Play Store that uses Accessibility."), "remote"));
+            remote.children.push(info.module ? opener(T("Turn On the Remote Buttons"), "accessibility", T("In Accessibility, choose Project Telly Remote and turn it on. Then Home opens Project Telly, holding Home or ⏯ opens the Control Center over any app, and Sleep and the Sleep Timer work."), "remote")
+                                             : action(T("Get Project Telly Remote"), function () { moduleHelp(); }, T("Home, holding Home and ⏯ over every app need a small second app, Project Telly Remote. It is separate because Google Play Protect blocks any app installed outside the Play Store that uses Accessibility."), "remote"));
             remote.children.push(opener(T("Remotes and Accessories"), "bluetooth", T("Bluetooth headphones, speakers, game controllers and remotes, in Android."), "bluetooth"));
         }
 
@@ -1056,25 +1060,25 @@
     });
 
     /* ---------- the first starts: make it the Home app, then turn on the remote buttons ----------
-       Asked at start-up until Home really opens APL Launcher, three times at most ("Later" waits for the
+       Asked at start-up until Home really opens Project Telly, three times at most ("Later" waits for the
        next start); Settings › Android TV has the same steps. Where the device's own launcher has a system
        priority on Home (Android TV 12+, Google TV: info.homeBlocked), Android's question changes nothing
        and the device even goes back to its own home after it (tried): only the remote buttons are asked. */
     var setupWait = "";
     function homeWorks(i) { return !!(i.defaultHome || (i.accessibility && sys.pref("catchHome"))); }
-    function setupDone() { toast(T("All set: Home now opens APL Launcher."), true); }
+    function setupDone() { toast(T("All set: Home now opens Project Telly."), true); }
     function askRemoteButtons(alone) {
         var i = fresh();
         if (homeWorks(i)) { setupDone(); return; }
         if (!i.module) { moduleHelp(); return; }          // the module first: Play Protect keeps it out of the launcher itself
         APL.alert({ title: alone ? T("Turn On the Remote Buttons") : T("One More Step: the Remote Buttons"),
-            message: T("This device keeps its own home screen on the Home button, even once APL Launcher is chosen. In Accessibility, choose APL Launcher Home Button and turn it on: Home then opens APL Launcher, and holding Home opens the Control Center over any app. Android then shows its usual warning about accessibility services: the module only sees the remote's buttons and which app is in front, and sends nothing anywhere."),
+            message: T("This device keeps its own home screen on the Home button, even once Project Telly is chosen. In Accessibility, choose Project Telly Remote and turn it on: Home then opens Project Telly, and holding Home opens the Control Center over any app. Android then shows its usual warning about accessibility services: the module only sees the remote's buttons and which app is in front, and sends nothing anywhere."),
             buttons: [{ label: T("Open Accessibility"), run: function () { setupWait = "accessibility"; B.openSettings("accessibility"); } },
                       { label: T("Later") }] });
     }
     function askHome() {
-        APL.alert({ title: T("Make APL Launcher Your Home Screen?"),
-            message: T("So that the remote's Home button and the device's start-up open APL Launcher. Android then asks which app to use: choose APL Launcher, then Set as default."),
+        APL.alert({ title: T("Make Project Telly Your Home Screen?"),
+            message: T("So that the remote's Home button and the device's start-up open Project Telly. Android then asks which app to use: choose Project Telly, then Set as default."),
             buttons: [{ label: T("Continue"), run: function () {
                           var r = B.requestHome();
                           if (r === "role" || r === "settings") setupWait = "home";      // back here once Android has asked
@@ -1089,7 +1093,7 @@
         else if (w === "module") { if (fresh().module) setTimeout(function () { askRemoteButtons(true); }, 400); }
         else if (w === "accessibility") {
             if (homeWorks(fresh())) setupDone();
-            else toast(T("Not yet: in Accessibility, choose APL Launcher Home Button and turn it on. Settings › Android TV has it too."));
+            else toast(T("Not yet: in Accessibility, choose Project Telly Remote and turn it on. Settings › Android TV has it too."));
         }
     }
     listen("homeRole", function () { if (setupWait === "home") backFromAndroid(); });
