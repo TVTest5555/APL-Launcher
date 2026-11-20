@@ -445,3 +445,73 @@ body.reduce-motion #tellyAmbient::after,
 body.perf #tellyAmbient,
 body.perf #tellyAmbient::before,
 body.perf #tellyAmbient::after { animation:none !important; }
+
+
+/* Project Telly: artwork-led hero backgrounds (original locally authored SVGs).
+   CSS is now used for layering/motion only; the visual scene is the SVG artwork. */
+body.telly-preset-frost #tellyAmbient,
+body.telly-preset-frost.telly-preset-frost #tellyAmbient {
+  background: #071522 url("../images/project-telly-frost.svg") center / cover no-repeat !important;
+  opacity: .98;
+}
+body.telly-preset-obsidian #tellyAmbient {
+  background: #050608 url("../images/project-telly-obsidian.svg") center / cover no-repeat !important;
+  opacity: .98;
+}
+body.telly-preset-frost #tellyAmbient::before {
+  inset: -15%;
+  filter: none;
+  background:
+    radial-gradient(circle at 12% 28%,rgba(235,251,255,.92) 0 1px,transparent 3px),
+    radial-gradient(circle at 36% 72%,rgba(177,232,255,.85) 0 2px,transparent 4px),
+    radial-gradient(circle at 72% 20%,rgba(235,251,255,.9) 0 1px,transparent 3px),
+    radial-gradient(circle at 88% 66%,rgba(177,232,255,.8) 0 2px,transparent 4px),
+    linear-gradient(112deg,transparent 30%,rgba(210,245,255,.02) 43%,rgba(225,250,255,.2) 50%,rgba(210,245,255,.02) 57%,transparent 70%);
+  background-size: 190px 190px,250px 250px,220px 220px,270px 270px,100% 100%;
+  animation: tellyFrostParticles 26s linear infinite, tellyFrostShimmer 13s ease-in-out infinite;
+}
+body.telly-preset-frost #tellyAmbient::after {
+  opacity: .5;
+  background: linear-gradient(118deg,transparent 28%,rgba(211,245,255,.12) 49%,transparent 58%);
+  animation: tellyFrostSweep 16s ease-in-out infinite;
+}
+@keyframes tellyFrostParticles {
+  from { background-position:0 -180px,0 -240px,0 -120px,0 -320px,0 0; }
+  to { background-position:60px 900px,-80px 1000px,90px 850px,-70px 1100px,0 0; }
+}
+@keyframes tellyFrostShimmer { 0%,100%{opacity:.62} 50%{opacity:1} }
+@keyframes tellyFrostSweep { 0%,18%{transform:translateX(-65%)} 82%,100%{transform:translateX(65%)} }
+
+body.telly-preset-obsidian #tellyAmbient::before {
+  inset: -12%;
+  filter: none;
+  background:
+    radial-gradient(ellipse at 18% 76%,rgba(255,106,36,.25),transparent 38%),
+    radial-gradient(ellipse at 78% 26%,rgba(255,147,63,.2),transparent 34%),
+    linear-gradient(118deg,transparent 35%,rgba(255,128,50,.02) 47%,rgba(255,177,102,.18) 50%,rgba(255,128,50,.02) 53%,transparent 65%);
+  animation: tellyObsidianEmbers 18s ease-in-out infinite alternate;
+}
+body.telly-preset-obsidian #tellyAmbient::after {
+  opacity: .65;
+  background:
+    radial-gradient(circle at 18% 80%,rgba(255,160,84,.95) 0 1px,transparent 3px),
+    radial-gradient(circle at 42% 58%,rgba(255,112,42,.8) 0 1px,transparent 3px),
+    radial-gradient(circle at 72% 34%,rgba(255,180,100,.85) 0 1px,transparent 3px),
+    radial-gradient(circle at 88% 68%,rgba(255,112,42,.7) 0 1px,transparent 3px);
+  background-size:210px 240px,260px 280px,230px 250px,280px 300px;
+  animation: tellyEmberDrift 20s linear infinite;
+}
+@keyframes tellyObsidianEmbers { from{transform:translate(-2%,1%) scale(1)} to{transform:translate(2%,-1%) scale(1.08)} }
+@keyframes tellyEmberDrift { from{background-position:0 0,0 0,0 0,0 0} to{background-position:40px -400px,-60px -520px,70px -460px,-30px -600px} }
+
+/* The selected preset's visual scene remains visible behind the UI, without competing with text. */
+body.telly-preset-frost .scrim { background:linear-gradient(90deg,rgba(2,10,18,.34),rgba(2,10,18,.08) 55%,rgba(2,10,18,.25)); }
+body.telly-preset-obsidian .scrim { background:linear-gradient(90deg,rgba(0,0,0,.4),rgba(0,0,0,.12) 55%,rgba(0,0,0,.32)); }
+@media (prefers-reduced-motion: reduce) {
+ body.telly-preset-frost #tellyAmbient::before,body.telly-preset-frost #tellyAmbient::after,
+ body.telly-preset-obsidian #tellyAmbient::before,body.telly-preset-obsidian #tellyAmbient::after { animation:none !important; }
+}
+body.reduce-motion.telly-preset-frost #tellyAmbient::before,body.reduce-motion.telly-preset-frost #tellyAmbient::after,
+body.reduce-motion.telly-preset-obsidian #tellyAmbient::before,body.reduce-motion.telly-preset-obsidian #tellyAmbient::after,
+body.perf.telly-preset-frost #tellyAmbient::before,body.perf.telly-preset-frost #tellyAmbient::after,
+body.perf.telly-preset-obsidian #tellyAmbient::before,body.perf.telly-preset-obsidian #tellyAmbient::after { animation:none !important; }
