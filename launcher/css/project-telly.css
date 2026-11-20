@@ -581,3 +581,10 @@ body.telly-bg-still.telly-preset-obsidian #tellyAmbient::before,
 body.telly-bg-still.telly-preset-obsidian #tellyAmbient::after {
   animation:none !important;
 }
+
+
+/* Performance mode disables tile blur, not ambient-scene motion. Re-enable the scene animations explicitly. */
+body.perf.telly-preset-frost #tellyAmbient::before { animation-name:tellyFrostParticles,tellyFrostShimmer !important; animation-duration:13s,5s !important; animation-timing-function:linear,ease-in-out !important; animation-iteration-count:infinite,infinite !important; }
+body.perf.telly-preset-frost #tellyAmbient::after { animation-name:tellyFrostSweep !important; animation-duration:9s !important; animation-timing-function:ease-in-out !important; animation-iteration-count:infinite !important; }
+body.perf.telly-preset-obsidian #tellyAmbient::before { animation-name:tellyObsidianEmbers !important; animation-duration:10s !important; animation-timing-function:ease-in-out !important; animation-iteration-count:infinite !important; }
+body.perf.telly-preset-obsidian #tellyAmbient::after { animation-name:tellyEmberDrift !important; animation-duration:12s !important; animation-timing-function:linear !important; animation-iteration-count:infinite !important; }
