@@ -2192,7 +2192,18 @@
         var noon = 12 - d.getTimezoneOffset() / 60 - 2.35 / 15, h = d.getHours() + d.getMinutes() / 60;
         return h < noon - half || h > noon + half;
     }
+    function applyTellyPreset() {
+        var body = document.body;
+        if (!body) return;
+        var preset = APL.sys.pref("tellyPreset") || "cinema";
+        var presets = ["family", "cinema", "minimal", "gamer", "champagne"];
+        if (presets.indexOf(preset) === -1) preset = "cinema";
+        presets.forEach(function (name) { body.classList.remove("telly-preset-" + name); });
+        body.classList.add("telly-preset-" + preset);
+        APL.applyTellyPreset = applyTellyPreset;
+    }
     function applyTheme() {
+        applyTellyPreset();
         var a = APL.sys.pref("appearance");
         var light = a === "light" || (a === "auto" && !isNight(new Date()));
         document.body.classList.toggle("theme-light", light);
