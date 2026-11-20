@@ -46,3 +46,6 @@ body.telly-preset-minimal .telly-studio__preview { background:#030405; }
 body.telly-preset-gamer .telly-studio__preview { background:radial-gradient(ellipse at 15% 80%,rgba(43,105,161,.28),transparent 55%),radial-gradient(ellipse at 82% 18%,rgba(111,66,159,.25),transparent 55%),linear-gradient(145deg,#080c16,#151426); }
 body.telly-preset-family .telly-studio__preview { background:radial-gradient(ellipse at 18% 78%,rgba(154,105,69,.25),transparent 58%),linear-gradient(145deg,#17130f,#27201a 52%,#11100e); }
 body.telly-preset-champagne .telly-studio__preview { background:radial-gradient(ellipse at 18% 82%,rgba(120,84,48,.26),transparent 58%),linear-gradient(145deg,#090909,#1c1914 50%,#090909); }
+
+body.telly-preset-obsidian .telly-studio__preview { background:radial-gradient(ellipse at 18% 76%,rgba(181,86,31,.28),transparent 55%),linear-gradient(145deg,#050505,#171513 58%,#080807); }
+body.telly-preset-sakura .telly-studio__preview { background:radial-gradient(ellipse at 18% 75%,rgba(199,103,154,.32),transparent 55%),radial-gradient(ellipse at 82% 18%,rgba(131,111,199,.30),transparent 55%),linear-gradient(145deg,#100b18,#261526 58%,#100d1c); }
