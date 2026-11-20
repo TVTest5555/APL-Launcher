@@ -78,14 +78,28 @@
                 addChoice(items, t[1], t[2], (APL.sys.pref("tellyPreset") || "cinema") === t[0], function () { setTheme(t[0]); });
             });
         } else if (page === "apps") {
-            title.textContent = "Choose the apps on your home screen";
+            title.textContent = "Choose and organise your apps";
+            if (!selectedApp && currentApps().length) selectedApp = currentApps()[0].id;
+            var selectedName = (currentApps().filter(function (a) { return a.id === selectedApp; })[0] || {}).name || "None";
+            addChoice(items, "Move selected app earlier", "Selected: " + selectedName, false, function () {
+                if (APL.moveApp && selectedApp) APL.moveApp(selectedApp, -1);
+                render();
+            });
+            addChoice(items, "Move selected app later", "Selected: " + selectedName, false, function () {
+                if (APL.moveApp && selectedApp) APL.moveApp(selectedApp, 1);
+                render();
+            });
             currentApps().forEach(function (app) {
                 var shown = APL.isAppVisible ? APL.isAppVisible(app.id) : true;
-                addChoice(items, app.name, shown ? "Shown on home screen" : "Hidden from home screen", shown, function () {
+                var choice = el("div", "telly-studio__choice" + (shown ? " is-active" : ""), app.name);
+                choice.appendChild(el("small", "", shown ? "Shown on home screen · selected for organising" : "Hidden from home screen · press OK to show"));
+                choice.dataset.appid = app.id;
+                choice._run = function () {
                     if (app.id === "apl.settings" && shown) { APL.toast("Settings must remain available from your home screen."); return; }
                     if (APL.setAppVisibility) APL.setAppVisibility(app.id, !shown);
                     render();
-                });
+                };
+                items.push(choice);
             });
         } else {
             title.textContent = "Shape your layout";
@@ -111,6 +125,7 @@
         var tiles = [root.querySelector(".telly-studio__close")].concat(tabs, items);
         if (nav) {
             nav.setTiles(tiles);
+            nav.onFocus = function (i, item) { if (item && item.dataset && item.dataset.appid) selectedApp = item.dataset.appid; };
             var focusAt = 1;
             for (var i = 0; i < tiles.length; i++) if (tiles[i]._run && tiles[i].classList.contains("is-active")) { focusAt = i; break; }
             nav.focus(focusAt);
