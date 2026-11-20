@@ -2211,6 +2211,10 @@
         ["flow", "aurora", "still"].forEach(function (x) { body.classList.remove("telly-bg-" + x); });
         body.classList.add("telly-glass-" + glass);
         body.classList.add("telly-bg-" + motion);
+        ["slow", "normal", "fast"].forEach(function (x) { body.classList.remove("telly-motion-" + x); });
+        ["subtle", "balanced", "vivid"].forEach(function (x) { body.classList.remove("telly-intensity-" + x); });
+        body.classList.add("telly-motion-" + (APL.sys.pref("tellyMotionSpeed") || "normal"));
+        body.classList.add("telly-intensity-" + (APL.sys.pref("tellyMotionIntensity") || "balanced"));
         var scale = APL.sys.pref("tellyTileScale") || "standard";
         body.classList.remove("telly-scale-compact", "telly-scale-large");
         if (scale !== "standard") body.classList.add("telly-scale-" + scale);
