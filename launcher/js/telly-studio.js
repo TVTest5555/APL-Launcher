@@ -30,6 +30,18 @@
         if (APL.applyTellyPreset) APL.applyTellyPreset();
         render();
     }
+    function applyVisuals() {
+        var body = document.body;
+        ["champagne", "ice", "clear"].forEach(function (x) { body.classList.remove("telly-glass-" + x); });
+        ["flow", "aurora", "still"].forEach(function (x) { body.classList.remove("telly-bg-" + x); });
+        ["slow", "normal", "fast"].forEach(function (x) { body.classList.remove("telly-motion-" + x); });
+        ["subtle", "balanced", "vivid"].forEach(function (x) { body.classList.remove("telly-intensity-" + x); });
+        body.classList.add("telly-glass-" + (APL.sys.pref("tellyGlassStyle") || "champagne"));
+        body.classList.add("telly-bg-" + (APL.sys.pref("tellyAmbientStyle") || "flow"));
+        body.classList.add("telly-motion-" + (APL.sys.pref("tellyMotionSpeed") || "normal"));
+        body.classList.add("telly-intensity-" + (APL.sys.pref("tellyMotionIntensity") || "balanced"));
+    }
+    function setVisual(key, value) { APL.sys.setPref(key, value); applyVisuals(); render(); }
     function setLayout(key, value) {
         APL.sys.setPref(key, value);
         if (key === "appsPerRow" && APL.reloadApps) APL.reloadApps();
@@ -117,6 +129,18 @@
             });
             [["tight","Tight spacing"],["balanced","Balanced spacing"],["relaxed","Relaxed spacing"]].forEach(function (v) {
                 addChoice(items, v[1], "Tile spacing", (APL.sys.pref("tellySpacing") || "balanced") === v[0], function () { setLayout("tellySpacing", v[0]); });
+            });
+            [["champagne","Champagne Edge"],["ice","Frosted Ice"],["clear","Clear Glass"]].forEach(function (v) {
+                addChoice(items, v[1], "Glass finish", (APL.sys.pref("tellyGlassStyle") || "champagne") === v[0], function () { setVisual("tellyGlassStyle", v[0]); });
+            });
+            [["flow","Ambient Flow"],["aurora","Aurora Motion"],["still","Static Background"]].forEach(function (v) {
+                addChoice(items, v[1], "Background style", (APL.sys.pref("tellyAmbientStyle") || "flow") === v[0], function () { setVisual("tellyAmbientStyle", v[0]); });
+            });
+            [["slow","Slow Motion"],["normal","Normal Motion"],["fast","Fast Motion"]].forEach(function (v) {
+                addChoice(items, v[1], "Animation speed", (APL.sys.pref("tellyMotionSpeed") || "normal") === v[0], function () { setVisual("tellyMotionSpeed", v[0]); });
+            });
+            [["subtle","Subtle"],["balanced","Balanced"],["vivid","Vivid"]].forEach(function (v) {
+                addChoice(items, v[1], "Background intensity", (APL.sys.pref("tellyMotionIntensity") || "balanced") === v[0], function () { setVisual("tellyMotionIntensity", v[0]); });
             });
         }
         items.forEach(function (item) {
