@@ -2312,6 +2312,16 @@
 
     APL.toast = function (m, info) { toast(m, info); };
     APL.allApps = function () { return allApps; };
+    APL.setAppVisibility = function (id, visible) {
+        var hidden = APL.sys.pref("hiddenApps").slice();
+        var at = hidden.indexOf(id);
+        if (visible && at !== -1) hidden.splice(at, 1);
+        if (!visible && at === -1) hidden.push(id);
+        APL.sys.setPref("hiddenApps", hidden);
+        render();
+        return true;
+    };
+    APL.isAppVisible = function (id) { return APL.sys.pref("hiddenApps").indexOf(id) === -1; };
     APL.reloadApps = function () { render(); };
     APL.openSources = function () {
         if (APL.ccOverlay && APL.platform.toLauncher) { APL.platform.toLauncher("sources"); return; }    // over the apps (webos.js)
