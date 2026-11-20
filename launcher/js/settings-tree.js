@@ -76,6 +76,17 @@
         body.classList.add("telly-bg-" + motion);
     }
 
+    function applyTellyPreset() {
+        var body = global.document && global.document.body;
+        if (!body) return;
+        var preset = sys.pref("tellyPreset") || "cinema";
+        ["family", "cinema", "minimal", "gamer", "champagne"].forEach(function (name) {
+            body.classList.remove("telly-preset-" + name);
+        });
+        body.classList.add("telly-preset-" + preset);
+        if (global.APL && global.APL.applyTellyPreset) global.APL.applyTellyPreset();
+    }
+
     function build() {
         applyTellyVisuals();
         var apps = ((APL.allApps && APL.allApps()) || []).filter(function (a) { return !a.virtual; });
@@ -89,6 +100,15 @@
 
             /* -------- Appearance -------- */
             menu(APL.t("Appearance"), "sun", [
+                menu("Project Telly Themes", "palette", [
+                    choice("Choose a Theme", "tellyPreset", [
+                        ["family", "Family Room"],
+                        ["cinema", "Cinema"],
+                        ["minimal", "Minimal OLED"],
+                        ["gamer", "Gaming"],
+                        ["champagne", "Champagne Signature"]
+                    ], "Five complete looks designed for different viewing preferences. You can still adjust the glass and background separately.", applyTellyPreset)
+                ], "Start with a complete look, then personalise it."),
                 menu("Project Telly Design", "sparkle", [
                     choice("Glass Finish", "tellyGlassStyle",
                         [["champagne", "Champagne Edge"], ["ice", "Arctic Edge"], ["clear", "Clear Glass"]],
