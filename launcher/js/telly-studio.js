@@ -184,7 +184,8 @@
             nav.setTiles(tiles);
             nav.onFocus = function (i, item) { if (item && item.dataset && item.dataset.appid) selectedApp = item.dataset.appid; if (item && item.scrollIntoView) item.scrollIntoView({ block: "nearest" }); };
             var focusAt = 1;
-            for (var i = 0; i < tiles.length; i++) if (tiles[i]._run && tiles[i].classList.contains("is-active")) { focusAt = i; break; }
+            for (var i = 0; i < tiles.length; i++) if (tiles[i].dataset && tiles[i].dataset.page === page) { focusAt = i; break; }
+            for (var j = 0; j < tiles.length; j++) if (tiles[j]._run && tiles[j].classList.contains("is-active")) { focusAt = j; break; }
             nav.focus(focusAt);
         }
         var pv = root.querySelector(".telly-studio__preview-wrap");
