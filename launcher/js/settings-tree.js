@@ -99,7 +99,8 @@
         body.classList.toggle("telly-labels-off", sys.pref("tellyLabels") === "off");
     }
 
-    function build() {\n        applyTellyLayout();
+    function build() {
+        applyTellyLayout();
         applyTellyVisuals();
         var apps = ((APL.allApps && APL.allApps()) || []).filter(function (a) { return !a.virtual; });
         /* The language is fixed when the launcher starts (i18n.js): changing it reloads the launcher. */
