@@ -141,6 +141,22 @@
             });
             [["subtle","Subtle"],["balanced","Balanced"],["vivid","Vivid"]].forEach(function (v) {
                 addChoice(items, v[1], "Background intensity", (APL.sys.pref("tellyMotionIntensity") || "balanced") === v[0], function () { setVisual("tellyMotionIntensity", v[0]); });
+            });            addChoice(items, "Reset all customisation", "Restore the default theme, app visibility and layout", false, function () {
+                APL.sys.setPref("tellyPreset", "cinema");
+                APL.sys.setPref("tellyGlassStyle", "champagne");
+                APL.sys.setPref("tellyAmbientStyle", "flow");
+                APL.sys.setPref("tellyMotionSpeed", "normal");
+                APL.sys.setPref("tellyMotionIntensity", "balanced");
+                APL.sys.setPref("tellyTileScale", "standard");
+                APL.sys.setPref("tellyLabels", "on");
+                APL.sys.setPref("tellySpacing", "balanced");
+                APL.sys.setPref("appsPerRow", 6);
+                APL.sys.setPref("hiddenApps", []);
+                if (APL.resetHomeOrder) APL.resetHomeOrder();
+                applyVisuals();
+                if (APL.applyTellyPreset) APL.applyTellyPreset();
+                if (APL.refreshHome) APL.refreshHome();
+                render();
             });
         }
         items.forEach(function (item) {
