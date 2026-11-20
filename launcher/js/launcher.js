@@ -2204,6 +2204,14 @@
     }
     function applyTheme() {
         applyTellyPreset();
+        var body = document.body;
+        var scale = APL.sys.pref("tellyTileScale") || "standard";
+        body.classList.remove("telly-scale-compact", "telly-scale-large");
+        if (scale !== "standard") body.classList.add("telly-scale-" + scale);
+        body.classList.remove("telly-spacing-tight", "telly-spacing-balanced", "telly-spacing-relaxed");
+        body.classList.add("telly-spacing-" + (APL.sys.pref("tellySpacing") || "balanced"));
+        body.classList.toggle("telly-labels-on", APL.sys.pref("tellyLabels") !== "off");
+        body.classList.toggle("telly-labels-off", APL.sys.pref("tellyLabels") === "off");
         var a = APL.sys.pref("appearance");
         var light = a === "light" || (a === "auto" && !isNight(new Date()));
         document.body.classList.toggle("theme-light", light);
